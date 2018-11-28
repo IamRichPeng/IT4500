@@ -33,6 +33,7 @@ class CalendarViewController: UIViewController ,UICollectionViewDelegate,UIColle
                 LeapYearCounter = 1
                 DaysInMonth[1] = 28
             }
+            GetStartDayPosition()
             
             
              currentMonth = Months[month]
@@ -41,7 +42,7 @@ class CalendarViewController: UIViewController ,UICollectionViewDelegate,UIColle
         default:
             Direction = 1
             
-            
+           GetStartDayPosition()
                month += 1
             
              currentMonth = Months[month]
@@ -69,14 +70,14 @@ class CalendarViewController: UIViewController ,UICollectionViewDelegate,UIColle
                 DaysInMonth[1] = 28
             }
           
-            
+            GetStartDayPosition()
             currentMonth = Months[month]
             MonthLabel.text = "\(currentMonth)\(year)"
             Calendar.reloadData()
         default:
             month -= 1
             Direction = -1
-            
+            GetStartDayPosition()
             
              currentMonth = Months[month]
             MonthLabel.text = "\(currentMonth)\(year)"
@@ -106,6 +107,38 @@ class CalendarViewController: UIViewController ,UICollectionViewDelegate,UIColle
     
     var LeapYearCounter = year % 4
     
+    var dayCounter = 0
+    
+    func GetStartDayPosition(){
+        switch Direction{
+        case 0:
+            NumberofEmptyBox = weekday
+            dayCounter = day
+            while dayCounter > 0{
+                NumberofEmptyBox = NumberofEmptyBox - 1
+                dayCounter = dayCounter - 1
+                if NumberofEmptyBox == 0{
+                    NumberofEmptyBox = 7
+                }
+            }
+            if NumberofEmptyBox == 7{
+                NumberofEmptyBox = 0
+            }
+            PositionIndex = NumberofEmptyBox
+        case 1...:
+            NextNumberOfEmptyBox = (PositionIndex + DaysInMonth[month])%7
+            PositionIndex = NextNumberOfEmptyBox
+        case -1:
+            PreviousNumberOfEmptyBox = (7 - (DaysInMonth[month] - PositionIndex)%7)
+            if PreviousNumberOfEmptyBox == 7 {
+                PreviousNumberOfEmptyBox = 0
+            }
+            PositionIndex = PreviousNumberOfEmptyBox
+        default:
+            fatalError()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -115,7 +148,13 @@ class CalendarViewController: UIViewController ,UICollectionViewDelegate,UIColle
         
         MonthLabel.text = "\(currentMonth)\(year)"
         
+        if weekday == 0{
+            weekday = 7
+        }
+        GetStartDayPosition()
     }
+    
+    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch Direction{            //it returns the number of days in the month + the number of "empty boxes" based on the direction we are going
@@ -129,6 +168,7 @@ class CalendarViewController: UIViewController ,UICollectionViewDelegate,UIColle
             fatalError()
         }
     }
+    
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Calendar", for: indexPath) as! DateCollectionViewCell
@@ -165,7 +205,7 @@ class CalendarViewController: UIViewController ,UICollectionViewDelegate,UIColle
         }
         
         // mark the cell showing the current date red
-        if currentMonth == Months[calendar.component(.month, from: date) - 1] && year == calendar.component(.year, from: date) && indexPath.row + 1 == day{
+        if currentMonth == Months[calendar.component(.month, from: date) - 1] && year == calendar.component(.year, from: date) && indexPath.row + 1 == day + NumberofEmptyBox{
             cell.backgroundColor = UIColor.red
         }
         
