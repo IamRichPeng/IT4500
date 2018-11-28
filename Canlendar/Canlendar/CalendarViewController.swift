@@ -154,6 +154,7 @@ class CalendarViewController: UIViewController ,UICollectionViewDelegate,UIColle
         }
         
          //show the weekend in different color
+        //we need to not hardcode this, the weekends arent gonna work in different months
         switch indexPath.row{
         case 5,6,12,13,19,20,26,27,33,34:
             if Int(cell.DateButton.currentTitle!)! > 0{
