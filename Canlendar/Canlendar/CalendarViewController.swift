@@ -11,6 +11,7 @@ import UIKit
 class CalendarViewController: UIViewController ,UICollectionViewDelegate,UICollectionViewDataSource{
 
     
+    @IBOutlet weak var EventDetailTableView: UITableView!
     @IBOutlet weak var MonthLabel: UILabel!
     
     
@@ -113,11 +114,13 @@ class CalendarViewController: UIViewController ,UICollectionViewDelegate,UIColle
     
     
     func GetStartDayPosition(){
+        print(day)
         switch Direction{
         case 0:
             switch day{
             case 1...7:
                 NumberofEmptyBox = weekday - day
+                print(weekday)
             case 8...14:
                 NumberofEmptyBox = weekday - day - 7
             case 15...21:
@@ -182,32 +185,30 @@ class CalendarViewController: UIViewController ,UICollectionViewDelegate,UIColle
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Calendar", for: indexPath) as! DateCollectionViewCell
         cell.backgroundColor = UIColor.clear
         
-        cell.DateLabel.textColor = UIColor.black
-        
         if cell.isHidden{
             cell.isHidden = false
         }
       
         switch Direction{
         case 0:
-            cell.DateLabel.text = "\(indexPath.row + 1 - NumberofEmptyBox)"
+            cell.DateButton.setTitle("\(indexPath.row + 1 - NumberofEmptyBox)", for: .normal)
         case 1...:
-            cell.DateLabel.text = "\(indexPath.row + 1 - NextNumberOfEmptyBox)"
+            cell.DateButton.setTitle("\(indexPath.row + 1 - NextNumberOfEmptyBox)", for: .normal)
         case -1:
-            cell.DateLabel.text = "\(indexPath.row + 1 - PreviousNumberOfEmptyBox)"
+            cell.DateButton.setTitle("\(indexPath.row + 1 - PreviousNumberOfEmptyBox)", for: .normal)
         default:
             fatalError()
         }
         
-        if Int(cell.DateLabel.text!)! < 1{// hides every cell that is smaller than 1
+        if Int(cell.DateButton.currentTitle!)! < 1{// hides every cell that is smaller than 1
             cell.isHidden = true
         }
         
-        // show the weekend in different color
+         //show the weekend in different color
         switch indexPath.row{
         case 5,6,12,13,19,20,26,27,33,34:
-            if Int(cell.DateLabel.text!)! > 0{
-                cell.DateLabel.textColor = UIColor.lightGray
+            if Int(cell.DateButton.currentTitle!)! > 0{
+                cell.DateButton.backgroundColor = UIColor.lightGray
             }
         default:
             break
@@ -220,16 +221,4 @@ class CalendarViewController: UIViewController ,UICollectionViewDelegate,UIColle
         
         return cell
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
