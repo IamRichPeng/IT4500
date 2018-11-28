@@ -191,10 +191,10 @@
             </objects>
             <point key="canvasLocation" x="108" y="134"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Event View Controller-->
         <scene sceneID="dss-c8-ljf">
             <objects>
-                <viewController id="Pyq-9i-WAf" sceneMemberID="viewController">
+                <viewController id="Pyq-9i-WAf" customClass="AddEventViewController" customModule="Canlendar" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Hpa-1n-B5D">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -270,6 +270,14 @@
                                     <segment title="recurring"/>
                                 </segments>
                             </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b1D-4k-nd9">
+                                <rect key="frame" x="309" y="617" width="55" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Confirm"/>
+                                <connections>
+                                    <action selector="confirmEvent:" destination="Pyq-9i-WAf" eventType="touchUpInside" id="zdV-aN-F2p"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -300,6 +308,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ROg-IV-72G"/>
                     </view>
+                    <connections>
+                        <outlet property="confirmButton" destination="b1D-4k-nd9" id="mIt-iC-NRt"/>
+                        <outlet property="descriptionTextBox" destination="fTe-2X-NjN" id="Brg-I7-mSH"/>
+                        <outlet property="titleTextBox" destination="i6Y-SJ-6I2" id="ibu-LI-KOR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z6S-QR-MiM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
