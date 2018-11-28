@@ -34,7 +34,6 @@ class CalendarViewController: UIViewController ,UICollectionViewDelegate,UIColle
                 DaysInMonth[1] = 28
             }
             
-            GetStartDayPosition()
             
              currentMonth = Months[month]
             MonthLabel.text = "\(currentMonth)\(year)"
@@ -42,7 +41,6 @@ class CalendarViewController: UIViewController ,UICollectionViewDelegate,UIColle
         default:
             Direction = 1
             
-            GetStartDayPosition()
             
                month += 1
             
@@ -71,7 +69,6 @@ class CalendarViewController: UIViewController ,UICollectionViewDelegate,UIColle
                 DaysInMonth[1] = 28
             }
           
-            GetStartDayPosition()
             
             currentMonth = Months[month]
             MonthLabel.text = "\(currentMonth)\(year)"
@@ -80,7 +77,6 @@ class CalendarViewController: UIViewController ,UICollectionViewDelegate,UIColle
             month -= 1
             Direction = -1
             
-            GetStartDayPosition()
             
              currentMonth = Months[month]
             MonthLabel.text = "\(currentMonth)\(year)"
@@ -108,65 +104,18 @@ class CalendarViewController: UIViewController ,UICollectionViewDelegate,UIColle
     
     var PositionIndex = 0 // here we will store the above vars of the empty boxes
     
-    var LeapYearCounter = 2 // its 2 because the next time february has 29 days is in two years
-    
-
-    
-    
-    func GetStartDayPosition(){
-        print(day)
-        switch Direction{
-        case 0:
-            switch day{
-            case 1...7:
-                NumberofEmptyBox = weekday - day
-                print(weekday)
-            case 8...14:
-                NumberofEmptyBox = weekday - day - 7
-            case 15...21:
-                NumberofEmptyBox = weekday - day - 14
-            case 22...28:
-                NumberofEmptyBox = weekday - day - 21
-            case 29...31:
-                NumberofEmptyBox = weekday - day - 28
-            default:
-                break
-            }
-            PositionIndex = NumberofEmptyBox
-        case 1...:
-            NextNumberOfEmptyBox = (PositionIndex + DaysInMonth[month])%7
-            PositionIndex = NextNumberOfEmptyBox
-        case -1:
-            PreviousNumberOfEmptyBox = (7 - (DaysInMonth[month] - PositionIndex)%7)
-            if PreviousNumberOfEmptyBox == 7 {
-                PreviousNumberOfEmptyBox = 0
-            }
-            PositionIndex = PreviousNumberOfEmptyBox
-        default:
-        fatalError()
-        }
-    }
-    
-    
-    
-    
-    
+    var LeapYearCounter = year % 4
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        initEKCalenders() //initializes events from user's Apple calendar, this allows us to push our new events into the user's default calender so they can also view our new events there.
         
         currentMonth = Months[month]
         
         MonthLabel.text = "\(currentMonth)\(year)"
         
     }
-    
-    
-    
-    
-    
-    
-    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch Direction{            //it returns the number of days in the month + the number of "empty boxes" based on the direction we are going
