@@ -12,4 +12,8 @@ class DateCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var DateButton: UIButton!
     
+    @IBAction func selectDate(_ sender: Any) {
+        
+    }
+    
 }

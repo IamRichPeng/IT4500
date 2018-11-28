@@ -64,6 +64,7 @@
                                                     <state key="normal" title="Date"/>
                                                     <connections>
                                                         <action selector="OnSelection:" destination="ODD-Uq-DAw" eventType="touchUpInside" id="MQy-Vg-UvD"/>
+                                                        <action selector="selectDate:" destination="ODD-Uq-DAw" eventType="touchUpInside" id="VQf-8S-7dF"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
