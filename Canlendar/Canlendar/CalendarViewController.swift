@@ -103,7 +103,7 @@ class CalendarViewController: UIViewController ,UICollectionViewDelegate,UIColle
     
     var Direction = 0 // =0 if we are at the current month, =1 if we are in a future month, = -1 if we are in  a past month
     
-    var PositionIndex = 0 // here we will store the above vars of the empty boxes
+    var PositionIndex = Int() // here we will store the above vars of the empty boxes
     
     var LeapYearCounter = year % 4
     
@@ -172,7 +172,7 @@ class CalendarViewController: UIViewController ,UICollectionViewDelegate,UIColle
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Calendar", for: indexPath) as! DateCollectionViewCell
-        cell.backgroundColor = UIColor.clear
+        cell.DateButton.backgroundColor = UIColor.clear
         
         if cell.isHidden{
             cell.isHidden = false
