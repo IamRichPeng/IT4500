@@ -205,7 +205,7 @@ class CalendarViewController: UIViewController ,UICollectionViewDelegate,UIColle
         
         // mark the cell showing the current date red
         if currentMonth == Months[calendar.component(.month, from: date) - 1] && year == calendar.component(.year, from: date) && indexPath.row + 1 == day + NumberofEmptyBox{
-            cell.backgroundColor = UIColor.red
+            cell.DateButton.backgroundColor = UIColor.red
         }
         
         return cell
