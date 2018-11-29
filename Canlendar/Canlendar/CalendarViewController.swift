@@ -172,7 +172,7 @@ class CalendarViewController: UIViewController ,UICollectionViewDelegate,UIColle
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Calendar", for: indexPath) as! DateCollectionViewCell
-        cell.backgroundColor = UIColor.clear
+        cell.DateButton.backgroundColor = UIColor.clear
         
         if cell.isHidden{
             cell.isHidden = false
