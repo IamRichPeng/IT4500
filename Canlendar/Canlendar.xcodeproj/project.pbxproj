@@ -20,6 +20,7 @@
 		9DA0B66921ADC943008B0E0C /* EventDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA0B66821ADC943008B0E0C /* EventDetailTableViewCell.swift */; };
 		9DA0B66B21AF1CD4008B0E0C /* EventVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA0B66A21AF1CD4008B0E0C /* EventVars.swift */; };
 		9DA0B66F21AF48E0008B0E0C /* AddEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA0B66E21AF48E0008B0E0C /* AddEventViewController.swift */; };
+		9DA0B67121B1E08A008B0E0C /* ExpandedEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA0B67021B1E08A008B0E0C /* ExpandedEventViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		9DA0B66821ADC943008B0E0C /* EventDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailTableViewCell.swift; sourceTree = "<group>"; };
 		9DA0B66A21AF1CD4008B0E0C /* EventVars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventVars.swift; sourceTree = "<group>"; };
 		9DA0B66E21AF48E0008B0E0C /* AddEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventViewController.swift; sourceTree = "<group>"; };
+		9DA0B67021B1E08A008B0E0C /* ExpandedEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandedEventViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 				01B5DA3321ADA39D00C1C4D0 /* CalendarVars.swift */,
 				9DA0B66A21AF1CD4008B0E0C /* EventVars.swift */,
 				01B5DA0221A5128F00C1C4D0 /* Main.storyboard */,
+				9DA0B67021B1E08A008B0E0C /* ExpandedEventViewController.swift */,
 				9DA0B66821ADC943008B0E0C /* EventDetailTableViewCell.swift */,
 				01B5DA0821A5129300C1C4D0 /* Assets.xcassets */,
 				01B5DA0A21A5129300C1C4D0 /* LaunchScreen.storyboard */,
@@ -274,6 +277,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DA0B67121B1E08A008B0E0C /* ExpandedEventViewController.swift in Sources */,
 				01B5DA3221ADA20700C1C4D0 /* DateCollectionViewCell.swift in Sources */,
 				9DA0B66F21AF48E0008B0E0C /* AddEventViewController.swift in Sources */,
 				01B5DA3021A512E200C1C4D0 /* CalendarViewController.swift in Sources */,

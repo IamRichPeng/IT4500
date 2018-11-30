@@ -7,10 +7,9 @@
 //
 
 import UIKit
+import EventKit
 
-class CalendarViewController: UIViewController ,UICollectionViewDelegate,UICollectionViewDataSource{
-
-    
+class CalendarViewController: UIViewController ,UICollectionViewDelegate,UICollectionViewDataSource,UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var EventDetailTableView: UITableView!
     @IBOutlet weak var MonthLabel: UILabel!
     
@@ -37,7 +36,7 @@ class CalendarViewController: UIViewController ,UICollectionViewDelegate,UIColle
             
             
              currentMonth = Months[month]
-            MonthLabel.text = "\(currentMonth)\(year)"
+            MonthLabel.text = "\(currentMonth) \(year)"
             Calendar.reloadData()
         default:
             Direction = 1
@@ -46,7 +45,7 @@ class CalendarViewController: UIViewController ,UICollectionViewDelegate,UIColle
                month += 1
             
              currentMonth = Months[month]
-            MonthLabel.text = "\(currentMonth)\(year)"
+            MonthLabel.text = "\(currentMonth) \(year)"
             Calendar.reloadData()
         }
     }
@@ -72,7 +71,7 @@ class CalendarViewController: UIViewController ,UICollectionViewDelegate,UIColle
           
             GetStartDayPosition()
             currentMonth = Months[month]
-            MonthLabel.text = "\(currentMonth)\(year)"
+            MonthLabel.text = "\(currentMonth) \(year)"
             Calendar.reloadData()
         default:
             month -= 1
@@ -80,7 +79,7 @@ class CalendarViewController: UIViewController ,UICollectionViewDelegate,UIColle
             GetStartDayPosition()
             
              currentMonth = Months[month]
-            MonthLabel.text = "\(currentMonth)\(year)"
+            MonthLabel.text = "\(currentMonth) \(year)"
             Calendar.reloadData()
         }
     }
@@ -108,6 +107,10 @@ class CalendarViewController: UIViewController ,UICollectionViewDelegate,UIColle
     var LeapYearCounter = year % 4
     
     var dayCounter = 0
+    
+    //for selecting a specific day's events
+    var dailyEventList = [EKEvent]()
+    let dateFormatter = DateFormatter()
     
     func GetStartDayPosition(){
         switch Direction{
@@ -142,11 +145,17 @@ class CalendarViewController: UIViewController ,UICollectionViewDelegate,UIColle
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .short
+        
+        EventDetailTableView.delegate = self
+        EventDetailTableView.dataSource = self
+        
         initEKCalenders() //initializes events from user's Apple calendar, this allows us to push our new events into the user's default calender so they can also view our new events there.
         
         currentMonth = Months[month]
         
-        MonthLabel.text = "\(currentMonth)\(year)"
+        MonthLabel.text = "\(currentMonth) \(year)"
         
         if weekday == 0{
             weekday = 7
@@ -194,7 +203,7 @@ class CalendarViewController: UIViewController ,UICollectionViewDelegate,UIColle
         }
         
          //show the weekend in different color
-        //we need to not hardcode this, the weekends arent gonna work in different months
+        //TODO TODO TODO we need to not hardcode this, the weekends arent gonna work in different months
         switch indexPath.row{
         case 5,6,12,13,19,20,26,27,33,34:
             if Int(cell.DateButton.currentTitle!)! > 0{
@@ -206,9 +215,78 @@ class CalendarViewController: UIViewController ,UICollectionViewDelegate,UIColle
         
         // mark the cell showing the current date red
         if currentMonth == Months[calendar.component(.month, from: date) - 1] && year == calendar.component(.year, from: date) && indexPath.row + 1 == day + NumberofEmptyBox{
-            cell.backgroundColor = UIColor.red
+            cell.DateButton.backgroundColor = UIColor.red
         }
         
+        //this links the button to an IBAction we can use here so we can fetch that button's date
+        cell.DateButton.tag = indexPath.row
+        cell.DateButton.addTarget(self,
+                              action: #selector(self.selectDate),
+                              for: .touchUpInside)
+        
         return cell
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return dailyEventList.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath)
+
+        print("yes")
+        if let cell = cell as? EventDetailTableViewCell{
+            dateFormatter.dateFormat = ("h:mm a")
+            cell.EventDescriptionLabel.text = dailyEventList[indexPath.row].title
+            cell.TimeLabel.text = dateFormatter.string(for: dailyEventList[indexPath.row].startDate)
+        }
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let destination = ExpandedEventViewController()
+        performSegue(withIdentifier: "ExpandEventSegue", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ExpandEventSegue"{
+            if let destination = segue.destination as? ExpandedEventViewController,
+                let row = EventDetailTableView.indexPathForSelectedRow?.row{
+                
+                destination.event = dailyEventList[row]
+                
+            }
+        }
+    }
+    
+    @IBAction func selectDate(_ sender: UIButton) {
+        var currentDateString: String
+        dailyEventList.removeAll()
+    
+        dateFormatter.dateFormat = ("d MMMM yyyy")
+        
+        //create a way to read the selected day
+        currentDateString = sender.currentTitle! + " " + MonthLabel.text!
+        var currentDate = dateFormatter.date(from: currentDateString)
+        
+        //pulls all EKEvents that share same date as currentDate
+        for event in events{
+            if calendar.compare(event.startDate, to: currentDate!, toGranularity: .day) == ComparisonResult.orderedSame{
+                dailyEventList.insert(event, at: 0)
+            }
+        }
+        print(dailyEventList)
+        
+        //the UI will NOT. FUCKING. REFRESH.
+        refreshUI()
+        //EventDetailTableView.reloadData()
+    }
+    
+    func refreshUI() {
+        DispatchQueue.main.async( execute: { self.EventDetailTableView.reloadData() });
     }
 }
