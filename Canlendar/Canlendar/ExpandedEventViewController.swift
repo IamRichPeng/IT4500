@@ -23,6 +23,7 @@ class ExpandedEventViewController: UIViewController {
         super.viewDidLoad()
         
         dateFormatter.dateStyle = .short
+        dateFormatter.dateFormat = ("h:mm a")
         
         titleLabel.text = event?.title
         startTimeLabel.text = dateFormatter.string(for: event?.startDate)

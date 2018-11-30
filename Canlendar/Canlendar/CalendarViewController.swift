@@ -238,7 +238,6 @@ class CalendarViewController: UIViewController ,UICollectionViewDelegate,UIColle
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath)
 
-        print("yes")
         if let cell = cell as? EventDetailTableViewCell{
             dateFormatter.dateFormat = ("h:mm a")
             cell.EventDescriptionLabel.text = dailyEventList[indexPath.row].title
