@@ -279,11 +279,7 @@ class CalendarViewController: UIViewController ,UICollectionViewDelegate,UIColle
                 dailyEventList.insert(event, at: 0)
             }
         }
-        print(dailyEventList)
-        
-        //the UI will NOT. FUCKING. REFRESH.
         refreshUI()
-        //EventDetailTableView.reloadData()
     }
     
     func refreshUI() {
