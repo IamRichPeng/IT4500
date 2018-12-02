@@ -319,20 +319,20 @@
                                     <!--2018-11-29 18:28:46 +0000-->
                                 </date>
                             </datePicker>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="WSw-to-rJl">
-                                <rect key="frame" x="-2" y="452" width="379" height="31"/>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="30" minValue="30" maxValue="720" translatesAutoresizingMaskIntoConstraints="NO" id="WSw-to-rJl">
+                                <rect key="frame" x="8" y="452" width="359" height="31"/>
                                 <connections>
                                     <action selector="durationSlider:" destination="Pyq-9i-WAf" eventType="valueChanged" id="hZB-ed-oes"/>
                                 </connections>
                             </slider>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Rc-DY-Ske">
-                                <rect key="frame" x="0.0" y="490" width="375" height="30"/>
+                                <rect key="frame" x="0.0" y="527" width="375" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="qdz-60-dFv">
-                                <rect key="frame" x="95" y="534" width="185" height="29"/>
+                                <rect key="frame" x="84" y="565" width="207" height="29"/>
                                 <segments>
                                     <segment title="Non-repeating"/>
                                     <segment title="Repeating"/>
@@ -349,33 +349,50 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Minutes required:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ob1-u6-zlq">
+                                <rect key="frame" x="74" y="496" width="134" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pXz-Iv-kRt">
+                                <rect key="frame" x="207" y="496" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="4Nv-fJ-rP2" firstAttribute="top" secondItem="fTe-2X-NjN" secondAttribute="bottom" constant="-3" id="0l7-e3-GSK"/>
                             <constraint firstItem="i6Y-SJ-6I2" firstAttribute="top" secondItem="rFh-vm-bBL" secondAttribute="bottom" constant="53.5" id="65c-py-tpa"/>
                             <constraint firstItem="i6Y-SJ-6I2" firstAttribute="leading" secondItem="ROg-IV-72G" secondAttribute="leading" id="7NT-fd-U0X"/>
+                            <constraint firstItem="1Rc-DY-Ske" firstAttribute="leading" secondItem="ROg-IV-72G" secondAttribute="leading" id="9NP-Ee-d10"/>
                             <constraint firstItem="fTe-2X-NjN" firstAttribute="top" secondItem="i6Y-SJ-6I2" secondAttribute="bottom" id="9ve-Wc-YWF"/>
+                            <constraint firstItem="1Rc-DY-Ske" firstAttribute="top" secondItem="WSw-to-rJl" secondAttribute="bottom" constant="45" id="Axz-kT-RJt"/>
                             <constraint firstItem="ROg-IV-72G" firstAttribute="trailing" secondItem="uXn-tr-9Ws" secondAttribute="trailing" id="B1L-C3-rPU"/>
+                            <constraint firstItem="pXz-Iv-kRt" firstAttribute="top" secondItem="WSw-to-rJl" secondAttribute="bottom" constant="14" id="Bh9-5W-O9X"/>
                             <constraint firstItem="uXn-tr-9Ws" firstAttribute="top" secondItem="ROg-IV-72G" secondAttribute="top" id="Cvv-EY-dBi"/>
                             <constraint firstItem="fTe-2X-NjN" firstAttribute="leading" secondItem="ROg-IV-72G" secondAttribute="leading" id="DuK-RA-pEB"/>
-                            <constraint firstItem="ROg-IV-72G" firstAttribute="trailing" secondItem="qdz-60-dFv" secondAttribute="trailing" constant="95" id="L0d-P1-3Yd"/>
                             <constraint firstItem="ROg-IV-72G" firstAttribute="trailing" secondItem="4Nv-fJ-rP2" secondAttribute="trailing" id="MRg-xx-HoM"/>
                             <constraint firstItem="rFh-vm-bBL" firstAttribute="leading" secondItem="ROg-IV-72G" secondAttribute="leading" constant="166" id="NPZ-a8-LPU"/>
                             <constraint firstItem="rFh-vm-bBL" firstAttribute="top" secondItem="uXn-tr-9Ws" secondAttribute="bottom" id="P9T-UJ-93a"/>
+                            <constraint firstItem="pXz-Iv-kRt" firstAttribute="leading" secondItem="Ob1-u6-zlq" secondAttribute="trailing" constant="-1" id="QD0-kR-kZ0"/>
+                            <constraint firstItem="Ob1-u6-zlq" firstAttribute="top" secondItem="WSw-to-rJl" secondAttribute="bottom" constant="14" id="Qmd-zj-5d4"/>
                             <constraint firstItem="4Nv-fJ-rP2" firstAttribute="leading" secondItem="ROg-IV-72G" secondAttribute="leading" id="QvP-wz-m8i"/>
-                            <constraint firstItem="qdz-60-dFv" firstAttribute="leading" secondItem="ROg-IV-72G" secondAttribute="leading" constant="95" id="T6L-VM-Ntw"/>
-                            <constraint firstItem="qdz-60-dFv" firstAttribute="top" secondItem="1Rc-DY-Ske" secondAttribute="bottom" constant="14" id="Uyk-7j-3bg"/>
-                            <constraint firstItem="1Rc-DY-Ske" firstAttribute="leading" secondItem="ROg-IV-72G" secondAttribute="leading" id="WSg-N4-hHP"/>
+                            <constraint firstItem="ROg-IV-72G" firstAttribute="trailing" secondItem="qdz-60-dFv" secondAttribute="trailing" constant="84" id="VHR-hV-im3"/>
                             <constraint firstItem="ROg-IV-72G" firstAttribute="trailing" secondItem="fTe-2X-NjN" secondAttribute="trailing" id="Zd4-gz-JmT"/>
+                            <constraint firstItem="Ob1-u6-zlq" firstAttribute="leading" secondItem="ROg-IV-72G" secondAttribute="leading" constant="74" id="dNw-Qe-eYm"/>
                             <constraint firstItem="WSw-to-rJl" firstAttribute="top" secondItem="4Nv-fJ-rP2" secondAttribute="bottom" constant="-3" id="dwW-qa-FTY"/>
+                            <constraint firstItem="ROg-IV-72G" firstAttribute="trailing" secondItem="pXz-Iv-kRt" secondAttribute="trailing" constant="126" id="eDG-p1-N5R"/>
                             <constraint firstItem="ROg-IV-72G" firstAttribute="trailing" secondItem="i6Y-SJ-6I2" secondAttribute="trailing" id="eRs-nO-0Bw"/>
-                            <constraint firstItem="WSw-to-rJl" firstAttribute="leading" secondItem="ROg-IV-72G" secondAttribute="leading" id="gZw-aO-7Js"/>
+                            <constraint firstItem="WSw-to-rJl" firstAttribute="leading" secondItem="ROg-IV-72G" secondAttribute="leading" constant="10" id="gZw-aO-7Js"/>
                             <constraint firstItem="ROg-IV-72G" firstAttribute="trailing" secondItem="rFh-vm-bBL" secondAttribute="trailing" constant="167" id="jjO-vg-APg"/>
-                            <constraint firstItem="ROg-IV-72G" firstAttribute="trailing" secondItem="1Rc-DY-Ske" secondAttribute="trailing" id="k4F-wb-gez"/>
-                            <constraint firstItem="1Rc-DY-Ske" firstAttribute="top" secondItem="WSw-to-rJl" secondAttribute="bottom" constant="8" id="o1x-vf-T9B"/>
+                            <constraint firstItem="qdz-60-dFv" firstAttribute="top" secondItem="1Rc-DY-Ske" secondAttribute="bottom" constant="8" id="mQO-al-2gm"/>
+                            <constraint firstItem="qdz-60-dFv" firstAttribute="leading" secondItem="ROg-IV-72G" secondAttribute="leading" constant="84" id="nED-z4-sIC"/>
                             <constraint firstItem="uXn-tr-9Ws" firstAttribute="leading" secondItem="ROg-IV-72G" secondAttribute="leading" id="uwM-uj-K7A"/>
-                            <constraint firstItem="ROg-IV-72G" firstAttribute="trailing" secondItem="WSw-to-rJl" secondAttribute="trailing" id="v6s-Ph-hdJ"/>
+                            <constraint firstItem="ROg-IV-72G" firstAttribute="trailing" secondItem="WSw-to-rJl" secondAttribute="trailing" constant="10" id="v6s-Ph-hdJ"/>
+                            <constraint firstItem="ROg-IV-72G" firstAttribute="trailing" secondItem="1Rc-DY-Ske" secondAttribute="trailing" id="xlT-m0-ZDw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ROg-IV-72G"/>
                     </view>
@@ -384,6 +401,8 @@
                         <outlet property="confirmButton" destination="wjf-cQ-Dju" id="szX-7j-cCV"/>
                         <outlet property="datePicker" destination="Hpa-1n-B5D" id="qd7-PM-wqN"/>
                         <outlet property="descriptionTextBox" destination="fTe-2X-NjN" id="Brg-I7-mSH"/>
+                        <outlet property="durationSliderValue" destination="WSw-to-rJl" id="AyP-1B-PNz"/>
+                        <outlet property="hours" destination="pXz-Iv-kRt" id="r7l-57-cpk"/>
                         <outlet property="locationField" destination="1Rc-DY-Ske" id="Mfk-z0-phx"/>
                         <outlet property="titleTextBox" destination="i6Y-SJ-6I2" id="ibu-LI-KOR"/>
                     </connections>

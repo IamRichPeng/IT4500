@@ -9,15 +9,18 @@
 import UIKit
 import EventKit
 
+
 class AddEventViewController: UIViewController {
 
     @IBOutlet weak var titleTextBox: UITextField!
     @IBOutlet weak var descriptionTextBox: UITextField!
     
+    @IBOutlet weak var durationSliderValue: UISlider!
     @IBOutlet var datePicker: UIView!
     
     @IBOutlet weak var locationField: UITextField!
     
+    @IBOutlet weak var hours: UILabel!
     @IBOutlet weak var confirmButton: UIBarButtonItem!
     
     @IBOutlet var backButton: UIView!
@@ -58,6 +61,7 @@ class AddEventViewController: UIViewController {
         event.title = titleTextBox.text
         event.startDate = startDate
         event.endDate = endDate
+        print(endDate)
         event.notes = descriptionTextBox.text
         event.url = URL(string: "https://missouri.edu")
         
@@ -73,10 +77,14 @@ class AddEventViewController: UIViewController {
     
     
     @IBAction func durationSlider(_ sender: UISlider) {
+        hours.text = String(Int(durationSliderValue.value/30)*30)
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor(red:0.53, green:0.81, blue:0.98, alpha:1.0)
+        hours.text = String(Int(durationSliderValue.value))
     }
     @IBAction func confirmEvent(_ sender: UIButton) {
         guard let currentCalendar = currentCalendar else {
@@ -112,3 +120,5 @@ class AddEventViewController: UIViewController {
         }
     }
 }
+
+//the code needs to take the day it is due and pick a time between todays date and the due date and insert the activity into a time frame it would work in 
