@@ -295,12 +295,6 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rFh-vm-bBL">
-                                <rect key="frame" x="166" y="108" width="42" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter description here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fTe-2X-NjN">
                                 <rect key="frame" x="0.0" y="212" width="375" height="30"/>
                                 <nil key="textColor"/>
@@ -319,7 +313,7 @@
                                     <!--2018-11-29 18:28:46 +0000-->
                                 </date>
                             </datePicker>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="30" minValue="30" maxValue="720" translatesAutoresizingMaskIntoConstraints="NO" id="WSw-to-rJl">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="30" minValue="30" maxValue="300" translatesAutoresizingMaskIntoConstraints="NO" id="WSw-to-rJl">
                                 <rect key="frame" x="8" y="452" width="359" height="31"/>
                                 <connections>
                                     <action selector="durationSlider:" destination="Pyq-9i-WAf" eventType="valueChanged" id="hZB-ed-oes"/>
@@ -357,6 +351,12 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pXz-Iv-kRt">
                                 <rect key="frame" x="207" y="496" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rFh-vm-bBL">
+                                <rect key="frame" x="166" y="108" width="42" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -402,8 +402,10 @@
                         <outlet property="datePicker" destination="Hpa-1n-B5D" id="qd7-PM-wqN"/>
                         <outlet property="descriptionTextBox" destination="fTe-2X-NjN" id="Brg-I7-mSH"/>
                         <outlet property="durationSliderValue" destination="WSw-to-rJl" id="AyP-1B-PNz"/>
-                        <outlet property="hours" destination="pXz-Iv-kRt" id="r7l-57-cpk"/>
                         <outlet property="locationField" destination="1Rc-DY-Ske" id="Mfk-z0-phx"/>
+                        <outlet property="minutesLabel" destination="pXz-Iv-kRt" id="yJI-SV-DWf"/>
+                        <outlet property="minutesRequiredLabel" destination="Ob1-u6-zlq" id="ep6-v7-afi"/>
+                        <outlet property="taskLabel" destination="rFh-vm-bBL" id="8dZ-qb-7Wq"/>
                         <outlet property="titleTextBox" destination="i6Y-SJ-6I2" id="ibu-LI-KOR"/>
                     </connections>
                 </viewController>
