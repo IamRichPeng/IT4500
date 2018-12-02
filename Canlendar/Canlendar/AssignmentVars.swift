@@ -68,13 +68,13 @@ class EventPair{
                 //find time interval between this event and next
                 let interval = relevantEvents[i+1].startDate.timeIntervalSince(event.endDate)
                 if interval > duration!{
-                    events.append(nil) //TODO TODO TODO create new event with start date = event.endDate
+                    //events.append(nil) //TODO TODO TODO create new event with start date = event.endDate
                 }
             }
             else if event.endDate > dueDate!{
                 let interval = relevantEvents[i+1].startDate.timeIntervalSince(event.endDate)
                 if interval > duration!{
-                    events.append(nil) //TODO TODO TODO create new event with start date = event.endDate
+                    //events.append(nil) //TODO TODO TODO create new event with start date = event.endDate
                 }
             }
         }

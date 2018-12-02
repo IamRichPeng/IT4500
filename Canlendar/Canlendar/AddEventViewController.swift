@@ -16,7 +16,7 @@ class AddEventViewController: UIViewController {
     @IBOutlet weak var descriptionTextBox: UITextField!
     
     @IBOutlet weak var durationSliderValue: UISlider!
-    @IBOutlet var datePicker: UIView!
+    @IBOutlet var datePicker: UIDatePicker!
     
     @IBOutlet weak var locationField: UITextField!
     
@@ -44,16 +44,21 @@ class AddEventViewController: UIViewController {
             return
         }
         
+        //variables to send to the Assignment Shuffler
+        let dueDate = datePicker.date
+        let duration = hours.text
+        let assignmentTitle = titleTextBox.text
         
         
-        
-        let startDate = Date(timeIntervalSinceNow: 0)
+        //stuff for static event
+        let startDate = datePicker.date
         var oneHourFromNowComponents = DateComponents()
         oneHourFromNowComponents.hour = 1
         
         guard let endDate = Calendar.current.date(byAdding: oneHourFromNowComponents, to: startDate) else {
             return
         }
+        //end static event code
         
         let event = EKEvent(eventStore: eventStore)
         
