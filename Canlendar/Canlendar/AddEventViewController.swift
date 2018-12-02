@@ -51,7 +51,7 @@ class AddEventViewController: UIViewController {
         
         //variables to send to the Assignment Shuffler
         let dueDate = datePicker.date
-        let duration = hours.text
+        let duration = minutesLabel.text
         let assignmentTitle = titleTextBox.text
         
         
