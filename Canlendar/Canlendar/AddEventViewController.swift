@@ -10,6 +10,7 @@ import UIKit
 import EventKit
 
 
+
 class AddEventViewController: UIViewController {
 
     @IBOutlet weak var titleTextBox: UITextField!
@@ -17,9 +18,10 @@ class AddEventViewController: UIViewController {
     
     @IBOutlet weak var taskLabel: UILabel!
     @IBOutlet weak var durationSliderValue: UISlider!
-    @IBOutlet var datePicker: UIView!
+   
+    @IBOutlet weak var datePicker: UIDatePicker!
     
-    @IBOutlet weak var locationField: UITextField!
+    
     
     @IBOutlet weak var minutesLabel: UILabel!
     
@@ -31,8 +33,7 @@ class AddEventViewController: UIViewController {
         taskLabel.text = "Event"
         titleTextBox.placeholder = "Title"
         descriptionTextBox.placeholder = "enter description"
-        locationField.isHidden = false
-        locationField.placeholder = "Enter location"
+       
         
     }
     
@@ -40,7 +41,7 @@ class AddEventViewController: UIViewController {
         taskLabel.text = "Assignment"
         titleTextBox.placeholder = "Title:"
         descriptionTextBox.placeholder = "enter description here"
-        locationField.isHidden = true
+       
     }
     
     @IBAction func confirmButtonAction(_ sender: UIBarButtonItem) {
@@ -91,6 +92,12 @@ class AddEventViewController: UIViewController {
         taskLabel.textColor = UIColor.white
         minutesLabel.textColor = UIColor.white
         minutesRequiredLabel.textColor = UIColor.white
+        descriptionTextBox.backgroundColor = UIColor(red:0.57, green:0.72, blue:0.93, alpha:1.0)
+        titleTextBox.backgroundColor = UIColor(red:0.57, green:0.72, blue:0.93, alpha:1.0)
+        //datePicker.setValue(UIColor.white, forKeyPath: "Color")
+        datePicker.backgroundColor = UIColor(red:0.57, green:0.72, blue:0.93, alpha:1.0)
+        
+        
         self.view.backgroundColor = UIColor(red:0.31, green:0.55, blue:0.89, alpha:1.0)
         minutesLabel.text = String(Int(durationSliderValue.value))
     }

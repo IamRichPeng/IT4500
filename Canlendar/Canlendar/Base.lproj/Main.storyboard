@@ -319,12 +319,6 @@
                                     <action selector="durationSlider:" destination="Pyq-9i-WAf" eventType="valueChanged" id="hZB-ed-oes"/>
                                 </connections>
                             </slider>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Rc-DY-Ske">
-                                <rect key="frame" x="0.0" y="527" width="375" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="qdz-60-dFv">
                                 <rect key="frame" x="84" y="565" width="207" height="29"/>
                                 <segments>
@@ -367,15 +361,14 @@
                             <constraint firstItem="4Nv-fJ-rP2" firstAttribute="top" secondItem="fTe-2X-NjN" secondAttribute="bottom" constant="-3" id="0l7-e3-GSK"/>
                             <constraint firstItem="i6Y-SJ-6I2" firstAttribute="top" secondItem="rFh-vm-bBL" secondAttribute="bottom" constant="53.5" id="65c-py-tpa"/>
                             <constraint firstItem="i6Y-SJ-6I2" firstAttribute="leading" secondItem="ROg-IV-72G" secondAttribute="leading" id="7NT-fd-U0X"/>
-                            <constraint firstItem="1Rc-DY-Ske" firstAttribute="leading" secondItem="ROg-IV-72G" secondAttribute="leading" id="9NP-Ee-d10"/>
                             <constraint firstItem="fTe-2X-NjN" firstAttribute="top" secondItem="i6Y-SJ-6I2" secondAttribute="bottom" id="9ve-Wc-YWF"/>
-                            <constraint firstItem="1Rc-DY-Ske" firstAttribute="top" secondItem="WSw-to-rJl" secondAttribute="bottom" constant="45" id="Axz-kT-RJt"/>
                             <constraint firstItem="ROg-IV-72G" firstAttribute="trailing" secondItem="uXn-tr-9Ws" secondAttribute="trailing" id="B1L-C3-rPU"/>
                             <constraint firstItem="pXz-Iv-kRt" firstAttribute="top" secondItem="WSw-to-rJl" secondAttribute="bottom" constant="14" id="Bh9-5W-O9X"/>
                             <constraint firstItem="uXn-tr-9Ws" firstAttribute="top" secondItem="ROg-IV-72G" secondAttribute="top" id="Cvv-EY-dBi"/>
                             <constraint firstItem="fTe-2X-NjN" firstAttribute="leading" secondItem="ROg-IV-72G" secondAttribute="leading" id="DuK-RA-pEB"/>
                             <constraint firstItem="ROg-IV-72G" firstAttribute="trailing" secondItem="4Nv-fJ-rP2" secondAttribute="trailing" id="MRg-xx-HoM"/>
                             <constraint firstItem="rFh-vm-bBL" firstAttribute="leading" secondItem="ROg-IV-72G" secondAttribute="leading" constant="166" id="NPZ-a8-LPU"/>
+                            <constraint firstItem="qdz-60-dFv" firstAttribute="top" secondItem="Ob1-u6-zlq" secondAttribute="bottom" constant="48" id="NuK-ge-cFA"/>
                             <constraint firstItem="rFh-vm-bBL" firstAttribute="top" secondItem="uXn-tr-9Ws" secondAttribute="bottom" id="P9T-UJ-93a"/>
                             <constraint firstItem="pXz-Iv-kRt" firstAttribute="leading" secondItem="Ob1-u6-zlq" secondAttribute="trailing" constant="-1" id="QD0-kR-kZ0"/>
                             <constraint firstItem="Ob1-u6-zlq" firstAttribute="top" secondItem="WSw-to-rJl" secondAttribute="bottom" constant="14" id="Qmd-zj-5d4"/>
@@ -388,21 +381,18 @@
                             <constraint firstItem="ROg-IV-72G" firstAttribute="trailing" secondItem="i6Y-SJ-6I2" secondAttribute="trailing" id="eRs-nO-0Bw"/>
                             <constraint firstItem="WSw-to-rJl" firstAttribute="leading" secondItem="ROg-IV-72G" secondAttribute="leading" constant="10" id="gZw-aO-7Js"/>
                             <constraint firstItem="ROg-IV-72G" firstAttribute="trailing" secondItem="rFh-vm-bBL" secondAttribute="trailing" constant="167" id="jjO-vg-APg"/>
-                            <constraint firstItem="qdz-60-dFv" firstAttribute="top" secondItem="1Rc-DY-Ske" secondAttribute="bottom" constant="8" id="mQO-al-2gm"/>
                             <constraint firstItem="qdz-60-dFv" firstAttribute="leading" secondItem="ROg-IV-72G" secondAttribute="leading" constant="84" id="nED-z4-sIC"/>
                             <constraint firstItem="uXn-tr-9Ws" firstAttribute="leading" secondItem="ROg-IV-72G" secondAttribute="leading" id="uwM-uj-K7A"/>
                             <constraint firstItem="ROg-IV-72G" firstAttribute="trailing" secondItem="WSw-to-rJl" secondAttribute="trailing" constant="10" id="v6s-Ph-hdJ"/>
-                            <constraint firstItem="ROg-IV-72G" firstAttribute="trailing" secondItem="1Rc-DY-Ske" secondAttribute="trailing" id="xlT-m0-ZDw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ROg-IV-72G"/>
                     </view>
                     <connections>
                         <outlet property="backButton" destination="Hpa-1n-B5D" id="WyW-58-6mm"/>
                         <outlet property="confirmButton" destination="wjf-cQ-Dju" id="szX-7j-cCV"/>
-                        <outlet property="datePicker" destination="Hpa-1n-B5D" id="qd7-PM-wqN"/>
+                        <outlet property="datePicker" destination="4Nv-fJ-rP2" id="ZKm-7B-fGk"/>
                         <outlet property="descriptionTextBox" destination="fTe-2X-NjN" id="Brg-I7-mSH"/>
                         <outlet property="durationSliderValue" destination="WSw-to-rJl" id="AyP-1B-PNz"/>
-                        <outlet property="locationField" destination="1Rc-DY-Ske" id="Mfk-z0-phx"/>
                         <outlet property="minutesLabel" destination="pXz-Iv-kRt" id="yJI-SV-DWf"/>
                         <outlet property="minutesRequiredLabel" destination="Ob1-u6-zlq" id="ep6-v7-afi"/>
                         <outlet property="taskLabel" destination="rFh-vm-bBL" id="8dZ-qb-7Wq"/>
