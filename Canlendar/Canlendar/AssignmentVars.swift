@@ -85,6 +85,10 @@ class EventPair{
     
     //need to shuffle assignments if conflicts arise from due date
     func shuffleAssignments(){
+        
+        //
+        
+        
         //findAssignments()
     }
     
