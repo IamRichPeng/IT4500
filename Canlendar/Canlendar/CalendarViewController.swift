@@ -144,7 +144,8 @@ class CalendarViewController: UIViewController ,UICollectionViewDelegate,UIColle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //self.view.backgroundColor = UIColor(red:0.53, green:0.81, blue:0.98, alpha:1.0)
+        EventDetailTableView.backgroundColor = UIColor(red:0.31, green:0.55, blue:0.89, alpha:1.0)
+        
         
         dateFormatter.dateStyle = .short
         dateFormatter.timeStyle = .short

@@ -13,15 +13,18 @@ import EventKit
 
 class AddEventViewController: UIViewController {
 
+    @IBOutlet weak var addAssignmentButton: UIBarButtonItem!
     @IBOutlet weak var titleTextBox: UITextField!
     @IBOutlet weak var descriptionTextBox: UITextField!
     
     @IBOutlet weak var taskLabel: UILabel!
     @IBOutlet weak var durationSliderValue: UISlider!
    
+    
     @IBOutlet weak var datePicker: UIDatePicker!
     
     
+    @IBOutlet weak var recurringSwitch: UISegmentedControl!
     
     @IBOutlet weak var minutesLabel: UILabel!
     
@@ -29,6 +32,7 @@ class AddEventViewController: UIViewController {
     @IBOutlet weak var confirmButton: UIBarButtonItem!
     
     @IBOutlet var backButton: UIView!
+    
     @IBAction func addEventButton(_ sender: UIBarButtonItem) {
         taskLabel.text = "Event"
         titleTextBox.placeholder = "Title"
@@ -38,6 +42,7 @@ class AddEventViewController: UIViewController {
     }
     
     @IBAction func addAssignmentButton(_ sender: UIBarButtonItem) {
+        recurringSwitch.isHidden = true
         taskLabel.text = "Assignment"
         titleTextBox.placeholder = "Title:"
         descriptionTextBox.placeholder = "enter description here"
@@ -94,12 +99,13 @@ class AddEventViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //addAssignmentButton(addAssignmentButton)
         taskLabel.textColor = UIColor.white
         minutesLabel.textColor = UIColor.white
         minutesRequiredLabel.textColor = UIColor.white
-        descriptionTextBox.backgroundColor = UIColor(red:0.57, green:0.72, blue:0.93, alpha:1.0)
-        titleTextBox.backgroundColor = UIColor(red:0.57, green:0.72, blue:0.93, alpha:1.0)
-        //datePicker.setValue(UIColor.white, forKeyPath: "Color")
+        descriptionTextBox.backgroundColor = UIColor(red:0.74, green:0.83, blue:0.96, alpha:1.0)
+        titleTextBox.backgroundColor = UIColor(red:0.74, green:0.83, blue:0.96, alpha:1.0)
+        recurringSwitch.tintColor = UIColor(red:0.74, green:0.83, blue:0.96, alpha:1.0)
         datePicker.backgroundColor = UIColor(red:0.57, green:0.72, blue:0.93, alpha:1.0)
         
         

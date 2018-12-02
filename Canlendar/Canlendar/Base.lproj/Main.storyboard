@@ -388,6 +388,7 @@
                         <viewLayoutGuide key="safeArea" id="ROg-IV-72G"/>
                     </view>
                     <connections>
+                        <outlet property="addAssignmentButton" destination="02M-sa-wfe" id="yMn-Ru-pEL"/>
                         <outlet property="backButton" destination="Hpa-1n-B5D" id="WyW-58-6mm"/>
                         <outlet property="confirmButton" destination="wjf-cQ-Dju" id="szX-7j-cCV"/>
                         <outlet property="datePicker" destination="4Nv-fJ-rP2" id="ZKm-7B-fGk"/>
@@ -395,6 +396,7 @@
                         <outlet property="durationSliderValue" destination="WSw-to-rJl" id="AyP-1B-PNz"/>
                         <outlet property="minutesLabel" destination="pXz-Iv-kRt" id="yJI-SV-DWf"/>
                         <outlet property="minutesRequiredLabel" destination="Ob1-u6-zlq" id="ep6-v7-afi"/>
+                        <outlet property="recurringSwitch" destination="qdz-60-dFv" id="NXZ-dv-Tij"/>
                         <outlet property="taskLabel" destination="rFh-vm-bBL" id="8dZ-qb-7Wq"/>
                         <outlet property="titleTextBox" destination="i6Y-SJ-6I2" id="ibu-LI-KOR"/>
                     </connections>
