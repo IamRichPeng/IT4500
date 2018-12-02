@@ -15,16 +15,20 @@ class AddEventViewController: UIViewController {
     @IBOutlet weak var titleTextBox: UITextField!
     @IBOutlet weak var descriptionTextBox: UITextField!
     
+    @IBOutlet weak var taskLabel: UILabel!
     @IBOutlet weak var durationSliderValue: UISlider!
     @IBOutlet var datePicker: UIView!
     
     @IBOutlet weak var locationField: UITextField!
     
-    @IBOutlet weak var hours: UILabel!
+    @IBOutlet weak var minutesLabel: UILabel!
+    
+    @IBOutlet weak var minutesRequiredLabel: UILabel!
     @IBOutlet weak var confirmButton: UIBarButtonItem!
     
     @IBOutlet var backButton: UIView!
     @IBAction func addEventButton(_ sender: UIBarButtonItem) {
+        taskLabel.text = "Event"
         titleTextBox.placeholder = "Title"
         descriptionTextBox.placeholder = "enter description"
         locationField.isHidden = false
@@ -33,6 +37,7 @@ class AddEventViewController: UIViewController {
     }
     
     @IBAction func addAssignmentButton(_ sender: UIBarButtonItem) {
+        taskLabel.text = "Assignment"
         titleTextBox.placeholder = "Title:"
         descriptionTextBox.placeholder = "enter description here"
         locationField.isHidden = true
@@ -77,14 +82,17 @@ class AddEventViewController: UIViewController {
     
     
     @IBAction func durationSlider(_ sender: UISlider) {
-        hours.text = String(Int(durationSliderValue.value/30)*30)
+        minutesLabel.text = String(Int(durationSliderValue.value/30)*30)
         
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor(red:0.53, green:0.81, blue:0.98, alpha:1.0)
-        hours.text = String(Int(durationSliderValue.value))
+        taskLabel.textColor = UIColor.white
+        minutesLabel.textColor = UIColor.white
+        minutesRequiredLabel.textColor = UIColor.white
+        self.view.backgroundColor = UIColor(red:0.31, green:0.55, blue:0.89, alpha:1.0)
+        minutesLabel.text = String(Int(durationSliderValue.value))
     }
     @IBAction func confirmEvent(_ sender: UIButton) {
         guard let currentCalendar = currentCalendar else {
