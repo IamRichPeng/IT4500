@@ -17,6 +17,50 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="swL-vw-4M7">
+                                <rect key="frame" x="4" y="131" width="371" height="266"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="266" id="DRu-gg-x5s"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="2" minimumInteritemSpacing="2" id="w5v-s4-BBp">
+                                    <size key="itemSize" width="40" height="40"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Calendar" id="ODD-Uq-DAw" customClass="DateCollectionViewCell" customModule="Canlendar" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W7w-My-gTE" userLabel="DateButton">
+                                                    <rect key="frame" x="-3" y="5" width="46" height="30"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <connections>
+                                                        <action selector="selectDate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QZV-qJ-hU1"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="W7w-My-gTE" firstAttribute="centerY" secondItem="ODD-Uq-DAw" secondAttribute="centerY" id="ZRs-YN-Wkq"/>
+                                            <constraint firstItem="W7w-My-gTE" firstAttribute="centerX" secondItem="ODD-Uq-DAw" secondAttribute="centerX" id="etZ-V3-xU0"/>
+                                        </constraints>
+                                        <size key="customSize" width="40" height="40"/>
+                                        <connections>
+                                            <outlet property="DateButton" destination="W7w-My-gTE" id="qWc-uF-lWE"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="pA7-Tl-DTg"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="e6J-2A-tNN"/>
+                                </connections>
+                            </collectionView>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="sKd-yi-gKv">
                                 <rect key="frame" x="0.0" y="190" width="73" height="21"/>
                             </stackView>
@@ -102,7 +146,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RwE-nL-Bcc">
-                                <rect key="frame" x="0.0" y="405" width="375" height="262"/>
+                                <rect key="frame" x="0.0" y="381" width="375" height="242"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="eventCell" rowHeight="47" id="mhq-dq-V7n" customClass="EventDetailTableViewCell" customModule="Canlendar" customModuleProvider="target">
@@ -113,13 +157,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="TimeLabel" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6bE-Lb-lkY">
-                                                    <rect key="frame" x="14" y="-9" width="184" height="21"/>
+                                                    <rect key="frame" x="15" y="26" width="184" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="EventDescriptionLabel" text="Event Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eXU-OB-fX6">
-                                                    <rect key="frame" x="224" y="-9" width="135" height="21"/>
+                                                    <rect key="frame" x="225" y="26" width="135" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="135" id="Hx8-WX-e6S"/>
                                                     </constraints>
@@ -129,11 +173,11 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="eXU-OB-fX6" secondAttribute="trailing" constant="-1" id="1jX-HN-jjj"/>
-                                                <constraint firstItem="6bE-Lb-lkY" firstAttribute="top" secondItem="0PW-Fu-4fb" secondAttribute="topMargin" constant="-20" id="AYt-qg-88z"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="eXU-OB-fX6" secondAttribute="trailing" id="1jX-HN-jjj"/>
+                                                <constraint firstItem="6bE-Lb-lkY" firstAttribute="top" secondItem="0PW-Fu-4fb" secondAttribute="topMargin" constant="15" id="AYt-qg-88z"/>
                                                 <constraint firstItem="6bE-Lb-lkY" firstAttribute="baseline" secondItem="eXU-OB-fX6" secondAttribute="baseline" id="Czt-02-Kd8"/>
                                                 <constraint firstItem="eXU-OB-fX6" firstAttribute="leading" secondItem="6bE-Lb-lkY" secondAttribute="trailing" constant="26" id="gwp-kP-mkP"/>
-                                                <constraint firstItem="6bE-Lb-lkY" firstAttribute="leading" secondItem="0PW-Fu-4fb" secondAttribute="leadingMargin" constant="-1" id="zP8-c6-Rhu"/>
+                                                <constraint firstItem="6bE-Lb-lkY" firstAttribute="leading" secondItem="0PW-Fu-4fb" secondAttribute="leadingMargin" id="zP8-c6-Rhu"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -143,57 +187,13 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="swL-vw-4M7">
-                                <rect key="frame" x="4" y="131" width="371" height="266"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="266" id="DRu-gg-x5s"/>
-                                </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="2" minimumInteritemSpacing="2" id="w5v-s4-BBp">
-                                    <size key="itemSize" width="40" height="40"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Calendar" id="ODD-Uq-DAw" customClass="DateCollectionViewCell" customModule="Canlendar" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W7w-My-gTE" userLabel="DateButton">
-                                                    <rect key="frame" x="-3" y="5" width="46" height="30"/>
-                                                    <state key="normal" title="Button"/>
-                                                    <connections>
-                                                        <action selector="selectDate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QZV-qJ-hU1"/>
-                                                    </connections>
-                                                </button>
-                                            </subviews>
-                                        </view>
-                                        <constraints>
-                                            <constraint firstItem="W7w-My-gTE" firstAttribute="centerY" secondItem="ODD-Uq-DAw" secondAttribute="centerY" id="ZRs-YN-Wkq"/>
-                                            <constraint firstItem="W7w-My-gTE" firstAttribute="centerX" secondItem="ODD-Uq-DAw" secondAttribute="centerX" id="etZ-V3-xU0"/>
-                                        </constraints>
-                                        <size key="customSize" width="40" height="40"/>
-                                        <connections>
-                                            <outlet property="DateButton" destination="W7w-My-gTE" id="qWc-uF-lWE"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                </cells>
-                                <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="pA7-Tl-DTg"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="e6J-2A-tNN"/>
-                                </connections>
-                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="tgy-ec-fI3" firstAttribute="top" secondItem="aeR-ha-liM" secondAttribute="bottom" id="0A2-4R-m7V"/>
                             <constraint firstItem="sKd-yi-gKv" firstAttribute="leading" secondItem="2KJ-AD-awF" secondAttribute="leading" id="2z3-UI-NJf"/>
                             <constraint firstItem="tgy-ec-fI3" firstAttribute="leading" secondItem="I3t-mA-1ov" secondAttribute="trailing" constant="8" symbolic="YES" id="5dH-iZ-i81"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="RwE-nL-Bcc" secondAttribute="bottom" id="Bit-EX-M7L"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="RwE-nL-Bcc" secondAttribute="bottom" constant="44" id="Bit-EX-M7L"/>
                             <constraint firstItem="swL-vw-4M7" firstAttribute="trailing" secondItem="aeR-ha-liM" secondAttribute="trailing" id="CnQ-y5-3EZ"/>
                             <constraint firstItem="I3t-mA-1ov" firstAttribute="leading" secondItem="qcw-OK-wnP" secondAttribute="trailing" constant="18.5" id="Fni-sB-kQD"/>
                             <constraint firstItem="swL-vw-4M7" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="67" id="IOo-W1-6wh"/>
@@ -208,7 +208,7 @@
                             <constraint firstItem="qXx-6U-ImE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="48" id="XMx-aR-U9n"/>
                             <constraint firstItem="tgy-ec-fI3" firstAttribute="baseline" secondItem="myq-LP-MBI" secondAttribute="baseline" id="XPo-uj-7hH"/>
                             <constraint firstItem="tgy-ec-fI3" firstAttribute="baseline" secondItem="eN4-bZ-2do" secondAttribute="baseline" id="Yit-gV-XUD"/>
-                            <constraint firstItem="RwE-nL-Bcc" firstAttribute="top" secondItem="swL-vw-4M7" secondAttribute="bottom" constant="8" symbolic="YES" id="ZBr-oJ-WSh"/>
+                            <constraint firstItem="RwE-nL-Bcc" firstAttribute="top" secondItem="swL-vw-4M7" secondAttribute="bottom" constant="-16" id="ZBr-oJ-WSh"/>
                             <constraint firstItem="tgy-ec-fI3" firstAttribute="baseline" secondItem="I3t-mA-1ov" secondAttribute="baseline" id="asw-DW-3Fb"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="myq-LP-MBI" secondAttribute="trailing" constant="52" id="db2-uw-Wtv"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="swL-vw-4M7" secondAttribute="trailing" id="exr-t3-VPK"/>
