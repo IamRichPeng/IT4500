@@ -13,6 +13,7 @@ import EventKit
 
 class AddEventViewController: UIViewController {
 
+    @IBOutlet weak var datePickerLabel: UILabel!
     @IBOutlet weak var addAssignmentButton: UIBarButtonItem!
     @IBOutlet weak var titleTextBox: UITextField!
     @IBOutlet weak var descriptionTextBox: UITextField!
@@ -37,7 +38,7 @@ class AddEventViewController: UIViewController {
         taskLabel.text = "Event"
         titleTextBox.placeholder = "Title"
         descriptionTextBox.placeholder = "enter description"
-       
+       datePickerLabel.text = "Start Time"
         
     }
     
@@ -46,7 +47,7 @@ class AddEventViewController: UIViewController {
         taskLabel.text = "Assignment"
         titleTextBox.placeholder = "Title:"
         descriptionTextBox.placeholder = "enter description here"
-       
+       datePickerLabel.text = "Due Date"
     }
     
     @IBAction func confirmButtonAction(_ sender: UIBarButtonItem) {
@@ -108,6 +109,7 @@ class AddEventViewController: UIViewController {
         recurringSwitch.tintColor = UIColor(red:0.74, green:0.83, blue:0.96, alpha:1.0)
         datePicker.backgroundColor = UIColor(red:0.57, green:0.72, blue:0.93, alpha:1.0)
         
+        taskLabel.text = "Assignment"
         
         self.view.backgroundColor = UIColor(red:0.31, green:0.55, blue:0.89, alpha:1.0)
         minutesLabel.text = String(Int(durationSliderValue.value))

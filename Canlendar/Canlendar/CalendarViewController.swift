@@ -159,6 +159,7 @@ class CalendarViewController: UIViewController ,UICollectionViewDelegate,UIColle
         currentMonth = Months[month]
         
         navBarTitle.title = "\(currentMonth) \(year)"
+        //self.view.backgroundColor = UIColor(red:0.57, green:0.72, blue:0.93, alpha:1.0)
         
         if weekday == 0{
             weekday = 7
@@ -184,7 +185,8 @@ class CalendarViewController: UIViewController ,UICollectionViewDelegate,UIColle
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Calendar", for: indexPath) as! DateCollectionViewCell
-        cell.DateButton.backgroundColor = UIColor.clear
+        cell.DateButton.backgroundColor = UIColor(red:0.57, green:0.72, blue:0.93, alpha:1.0)
+        cell.DateButton.setTitleColor(UIColor.black, for: .normal)
         
         if cell.isHidden{
             cell.isHidden = false
@@ -218,7 +220,7 @@ class CalendarViewController: UIViewController ,UICollectionViewDelegate,UIColle
         
         // mark the cell showing the current date red
         if currentMonth == Months[calendar.component(.month, from: date) - 1] && year == calendar.component(.year, from: date) && indexPath.row + 1 == day + NumberofEmptyBox{
-            cell.DateButton.backgroundColor = UIColor.red
+            cell.DateButton.backgroundColor = UIColor(red:0.40, green:0.61, blue:0.90, alpha:1.0)
         }
         
         //this links the button to an IBAction we can use here so we can fetch that button's date
@@ -244,13 +246,21 @@ class CalendarViewController: UIViewController ,UICollectionViewDelegate,UIColle
         if let cell = cell as? EventDetailTableViewCell{
             dateFormatter.dateFormat = ("h:mm a")
             cell.EventDescriptionLabel.text = dailyEventList[indexPath.row].title
+            cell.EventDescriptionLabel.textColor = UIColor.white
+            
             cell.TimeLabel.text = dateFormatter.string(for: dailyEventList[indexPath.row].startDate)
+            cell.TimeLabel.textColor = UIColor.white
+            cell.backgroundColor = UIColor(red:0.31, green:0.55, blue:0.89, alpha:1.0)
         }
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let destination = ExpandedEventViewController()
+        
+        var selectedCell:UITableViewCell = tableView.cellForRow(at: indexPath)!
+        selectedCell.contentView.backgroundColor = UIColor(red:0.31, green:0.55, blue:0.89, alpha:1.0)
+        
         performSegue(withIdentifier: "ExpandEventSegue", sender: self)
     }
     
@@ -272,7 +282,7 @@ class CalendarViewController: UIViewController ,UICollectionViewDelegate,UIColle
         dateFormatter.dateFormat = ("d MMMM yyyy")
         
         //create a way to read the selected day
-        currentDateString = sender.currentTitle! + " " + MonthLabel.text!
+        currentDateString = sender.currentTitle! + " " + navBarTitle.title!
         var currentDate = dateFormatter.date(from: currentDateString)
         
         //pulls all EKEvents that share same date as currentDate
