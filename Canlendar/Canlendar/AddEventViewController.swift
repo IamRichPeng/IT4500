@@ -110,6 +110,7 @@ class AddEventViewController: UIViewController {
         datePicker.backgroundColor = UIColor(red:0.57, green:0.72, blue:0.93, alpha:1.0)
         
         taskLabel.text = "Assignment"
+        datePickerLabel.text = "Due Date"
         
         self.view.backgroundColor = UIColor(red:0.31, green:0.55, blue:0.89, alpha:1.0)
         minutesLabel.text = String(Int(durationSliderValue.value))
