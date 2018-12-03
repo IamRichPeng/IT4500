@@ -11,7 +11,7 @@ import EventKit
 
 class CalendarViewController: UIViewController ,UICollectionViewDelegate,UICollectionViewDataSource,UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var EventDetailTableView: UITableView!
-    @IBOutlet weak var MonthLabel: UILabel!
+    
     
     @IBOutlet weak var navBarTitle: UINavigationItem!
     
@@ -37,7 +37,7 @@ class CalendarViewController: UIViewController ,UICollectionViewDelegate,UIColle
             
             
              currentMonth = Months[month]
-            MonthLabel.text = "\(currentMonth) \(year)"
+            navBarTitle.title = "\(currentMonth) \(year)"
             Calendar.reloadData()
         default:
             Direction = 1
@@ -46,7 +46,7 @@ class CalendarViewController: UIViewController ,UICollectionViewDelegate,UIColle
                month += 1
             
              currentMonth = Months[month]
-            MonthLabel.text = "\(currentMonth) \(year)"
+            navBarTitle.title = "\(currentMonth) \(year)"
             Calendar.reloadData()
         }
     }
@@ -72,7 +72,7 @@ class CalendarViewController: UIViewController ,UICollectionViewDelegate,UIColle
           
             GetStartDayPosition()
             currentMonth = Months[month]
-            MonthLabel.text = "\(currentMonth) \(year)"
+            navBarTitle.title = "\(currentMonth) \(year)"
             Calendar.reloadData()
         default:
             month -= 1
@@ -80,7 +80,7 @@ class CalendarViewController: UIViewController ,UICollectionViewDelegate,UIColle
             GetStartDayPosition()
             
              currentMonth = Months[month]
-            MonthLabel.text = "\(currentMonth) \(year)"
+            navBarTitle.title = "\(currentMonth) \(year)"
             Calendar.reloadData()
         }
     }
@@ -115,29 +115,30 @@ class CalendarViewController: UIViewController ,UICollectionViewDelegate,UIColle
     
     func GetStartDayPosition(){
         switch Direction{
-        case 0:
+        case 0: // handles default month
             NumberofEmptyBox = weekday
             dayCounter = day
             while dayCounter > 0{
-                NumberofEmptyBox = NumberofEmptyBox - 1
-                dayCounter = dayCounter - 1
+                NumberofEmptyBox = NumberofEmptyBox - 0 // changes the amount of days on the calender view change this if it
+                                                        //has days from the previous or next month shown or not enough days
+                dayCounter = dayCounter - 1 // shifts boxes in the bottom right to the left
                 if NumberofEmptyBox == 0{
                     NumberofEmptyBox = 7
                 }
             }
-            if NumberofEmptyBox == 7{
-                NumberofEmptyBox = 0
-            }
+            //if NumberofEmptyBox == 7{
+               // NumberofEmptyBox = 0
+            //}
             PositionIndex = NumberofEmptyBox
-        case 1...:
-            NextNumberOfEmptyBox = (PositionIndex + DaysInMonth[month])%7
-            PositionIndex = NextNumberOfEmptyBox
-        case -1:
-            PreviousNumberOfEmptyBox = (7 - (DaysInMonth[month] - PositionIndex)%7)
-            if PreviousNumberOfEmptyBox == 7 {
+        case 1...: // handles the next navbar
+            NextNumberOfEmptyBox = (PositionIndex + DaysInMonth[month])%7 // <- this shifts the days from the top left over to the right when
+            PositionIndex = NextNumberOfEmptyBox                          // pressing next
+        case -1: // handles the back navbar
+            PreviousNumberOfEmptyBox = (7 - (DaysInMonth[month] - PositionIndex)%7) // this code shifts the top left over to the right when
+            if PreviousNumberOfEmptyBox == 7 {                                        //pressing back
                 PreviousNumberOfEmptyBox = 0
             }
-            PositionIndex = PreviousNumberOfEmptyBox
+            //PositionIndex = PreviousNumberOfEmptyBox
         default:
             fatalError()
         }
@@ -170,13 +171,14 @@ class CalendarViewController: UIViewController ,UICollectionViewDelegate,UIColle
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch Direction{            //it returns the number of days in the month + the number of "empty boxes" based on the direction we are going
-        case 0:
-            return DaysInMonth[month] + NumberofEmptyBox
-        case 1...:
+        case 0: //current month
+            return DaysInMonth[month] + NumberofEmptyBox // these return statements create the correct amount of boxes
+                                                        // for each month 
+        case 1...: //next month
             return DaysInMonth[month] + NextNumberOfEmptyBox
-        case -1:
+        case -1: //previous month
             return DaysInMonth[month] + PreviousNumberOfEmptyBox
-        default:
+        default: // errorchecking
             fatalError()
         }
     }
@@ -191,13 +193,13 @@ class CalendarViewController: UIViewController ,UICollectionViewDelegate,UIColle
         }
       
         switch Direction{
-        case 0:
-            cell.DateButton.setTitle("\(indexPath.row + 1 - NumberofEmptyBox)", for: .normal)
-        case 1...:
+        case 0: //current month
+            cell.DateButton.setTitle("\(indexPath.row + 1 - NumberofEmptyBox)", for: .normal)// these return statements just set the title of the                                  buttons to the correct order changing the numbers just shifts the text numbers on the boxes
+        case 1...: // next month
             cell.DateButton.setTitle("\(indexPath.row + 1 - NextNumberOfEmptyBox)", for: .normal)
-        case -1:
+        case -1:// previous month
             cell.DateButton.setTitle("\(indexPath.row + 1 - PreviousNumberOfEmptyBox)", for: .normal)
-        default:
+        default: //error checking
             fatalError()
         }
         
@@ -272,7 +274,7 @@ class CalendarViewController: UIViewController ,UICollectionViewDelegate,UIColle
         dateFormatter.dateFormat = ("d MMMM yyyy")
         
         //create a way to read the selected day
-        currentDateString = sender.currentTitle! + " " + MonthLabel.text!
+        currentDateString = sender.currentTitle! + " " + navBarTitle.title!
         var currentDate = dateFormatter.date(from: currentDateString)
         
         //pulls all EKEvents that share same date as currentDate
