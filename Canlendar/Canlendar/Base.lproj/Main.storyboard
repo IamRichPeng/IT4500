@@ -201,6 +201,7 @@
                         <outlet property="Calendar" destination="swL-vw-4M7" id="0KN-jj-pnw"/>
                         <outlet property="EventDetailTableView" destination="RwE-nL-Bcc" id="5mv-sv-dAg"/>
                         <outlet property="MonthLabel" destination="Cja-FD-wwQ" id="hXB-Tq-vQt"/>
+                        <outlet property="navBarTitle" destination="WPr-H8-m4k" id="qXz-xL-SPd"/>
                         <segue destination="gFZ-OO-EPw" kind="show" identifier="ExpandEventSegue" id="Pnb-ku-TyK"/>
                     </connections>
                 </viewController>

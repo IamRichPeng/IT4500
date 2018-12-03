@@ -13,6 +13,7 @@ class CalendarViewController: UIViewController ,UICollectionViewDelegate,UIColle
     @IBOutlet weak var EventDetailTableView: UITableView!
     @IBOutlet weak var MonthLabel: UILabel!
     
+    @IBOutlet weak var navBarTitle: UINavigationItem!
     
     
     @IBAction func Next(_ sender: Any) {
@@ -157,7 +158,7 @@ class CalendarViewController: UIViewController ,UICollectionViewDelegate,UIColle
         
         currentMonth = Months[month]
         
-        MonthLabel.text = "\(currentMonth) \(year)"
+        navBarTitle.title = "\(currentMonth) \(year)"
         
         if weekday == 0{
             weekday = 7
