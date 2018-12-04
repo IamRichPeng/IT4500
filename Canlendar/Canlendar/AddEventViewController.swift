@@ -8,7 +8,7 @@
 
 import UIKit
 import EventKit
-
+import Coredata
 
 
 class AddEventViewController: UIViewController {
@@ -34,6 +34,7 @@ class AddEventViewController: UIViewController {
     
     @IBOutlet var backButton: UIView!
     
+    
     @IBAction func addEventButton(_ sender: UIBarButtonItem) {
         taskLabel.text = "Event"
         titleTextBox.placeholder = "Title"
@@ -57,9 +58,9 @@ class AddEventViewController: UIViewController {
         }
         
         //variables to send to the Assignment Shuffler
-        let dueDate = datePicker.date
-        let duration = minutesLabel.text
-        let assignmentTitle = titleTextBox.text
+//        let dueDate = datePicker.date
+//        let duration = minutesLabel.text
+//        let assignmentTitle = titleTextBox.text
         
         
         //stuff for static event
@@ -112,6 +113,7 @@ class AddEventViewController: UIViewController {
         datePicker.backgroundColor = UIColor(red:0.57, green:0.72, blue:0.93, alpha:1.0)
         
         taskLabel.text = "Assignment"
+        datePickerLabel.text = "Due Date"
         
         self.view.backgroundColor = UIColor(red:0.31, green:0.55, blue:0.89, alpha:1.0)
         minutesLabel.text = String(Int(durationSliderValue.value))
