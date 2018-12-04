@@ -17,28 +17,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="swL-vw-4M7">
-                                <rect key="frame" x="48" y="131" width="275" height="266"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="swL-vw-4M7">
+                                <rect key="frame" x="0.0" y="131" width="375" height="266"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="266" id="DRu-gg-x5s"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="2" minimumInteritemSpacing="2" id="w5v-s4-BBp">
-                                    <size key="itemSize" width="40" height="40"/>
+                                    <size key="itemSize" width="47" height="40"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Calendar" id="ODD-Uq-DAw" customClass="DateCollectionViewCell" customModule="Canlendar" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="47" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="47" height="40"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W7w-My-gTE" userLabel="DateButton">
-                                                    <rect key="frame" x="-3" y="5" width="46" height="30"/>
+                                                    <rect key="frame" x="0.5" y="5" width="46" height="30"/>
                                                     <state key="normal" title="Button"/>
                                                     <connections>
                                                         <action selector="selectDate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QZV-qJ-hU1"/>
@@ -50,7 +50,7 @@
                                             <constraint firstItem="W7w-My-gTE" firstAttribute="centerY" secondItem="ODD-Uq-DAw" secondAttribute="centerY" id="ZRs-YN-Wkq"/>
                                             <constraint firstItem="W7w-My-gTE" firstAttribute="centerX" secondItem="ODD-Uq-DAw" secondAttribute="centerX" id="etZ-V3-xU0"/>
                                         </constraints>
-                                        <size key="customSize" width="40" height="40"/>
+                                        <size key="customSize" width="47" height="40"/>
                                         <connections>
                                             <outlet property="DateButton" destination="W7w-My-gTE" id="qWc-uF-lWE"/>
                                         </connections>
@@ -210,6 +210,7 @@
                             <constraint firstItem="tgy-ec-fI3" firstAttribute="baseline" secondItem="eN4-bZ-2do" secondAttribute="baseline" id="Yit-gV-XUD"/>
                             <constraint firstItem="RwE-nL-Bcc" firstAttribute="top" secondItem="swL-vw-4M7" secondAttribute="bottom" constant="-16" id="ZBr-oJ-WSh"/>
                             <constraint firstItem="tgy-ec-fI3" firstAttribute="baseline" secondItem="I3t-mA-1ov" secondAttribute="baseline" id="asw-DW-3Fb"/>
+                            <constraint firstItem="swL-vw-4M7" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="cNI-u8-002"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="myq-LP-MBI" secondAttribute="trailing" constant="52" id="db2-uw-Wtv"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="swL-vw-4M7" secondAttribute="trailing" id="exr-t3-VPK"/>
                             <constraint firstItem="2KJ-AD-awF" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="gzP-uD-wB3"/>
@@ -221,7 +222,6 @@
                             <constraint firstItem="swL-vw-4M7" firstAttribute="top" secondItem="qXx-6U-ImE" secondAttribute="bottom" constant="2" id="s7l-51-xrw"/>
                             <constraint firstItem="tgy-ec-fI3" firstAttribute="baseline" secondItem="qXx-6U-ImE" secondAttribute="baseline" id="sas-ah-7dF"/>
                             <constraint firstItem="KPv-cT-PRO" firstAttribute="leading" secondItem="tgy-ec-fI3" secondAttribute="trailing" constant="19" id="vku-oC-XsW"/>
-                            <constraint firstItem="swL-vw-4M7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="48" id="zjg-YO-luN"/>
                             <constraint firstItem="tgy-ec-fI3" firstAttribute="baseline" secondItem="qcw-OK-wnP" secondAttribute="baseline" id="zsP-jF-PAE"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>

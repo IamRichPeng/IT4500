@@ -8,7 +8,7 @@
 
 import UIKit
 import EventKit
-
+import Coredata
 
 
 class AddEventViewController: UIViewController {
@@ -34,6 +34,7 @@ class AddEventViewController: UIViewController {
     
     @IBOutlet var backButton: UIView!
     
+    
     @IBAction func addEventButton(_ sender: UIBarButtonItem) {
         taskLabel.text = "Event"
         titleTextBox.placeholder = "Title"
@@ -57,9 +58,9 @@ class AddEventViewController: UIViewController {
         }
         
         //variables to send to the Assignment Shuffler
-        let dueDate = datePicker.date
-        let duration = minutesLabel.text
-        let assignmentTitle = titleTextBox.text
+//        let dueDate = datePicker.date
+//        let duration = minutesLabel.text
+//        let assignmentTitle = titleTextBox.text
         
         
         //stuff for static event
