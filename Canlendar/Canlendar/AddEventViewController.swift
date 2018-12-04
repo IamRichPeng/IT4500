@@ -76,8 +76,10 @@ class AddEventViewController: UIViewController {
         
         event.calendar = currentCalendar
         event.title = titleTextBox.text
+        
         event.startDate = startDate
         event.endDate = endDate
+        
         print(endDate)
         event.notes = descriptionTextBox.text
         event.url = URL(string: "https://missouri.edu")
