@@ -17,13 +17,11 @@
 		01B5DA3021A512E200C1C4D0 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B5DA2F21A512E200C1C4D0 /* CalendarViewController.swift */; };
 		01B5DA3221ADA20700C1C4D0 /* DateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B5DA3121ADA20700C1C4D0 /* DateCollectionViewCell.swift */; };
 		01B5DA3421ADA39D00C1C4D0 /* CalendarVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B5DA3321ADA39D00C1C4D0 /* CalendarVars.swift */; };
-		9D4535CB21B7022D008B0D66 /* AssignmentPair+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4535C921B7022D008B0D66 /* AssignmentPair+CoreDataClass.swift */; };
-		9D4535CC21B7022D008B0D66 /* AssignmentPair+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4535CA21B7022D008B0D66 /* AssignmentPair+CoreDataProperties.swift */; };
+		9D4535CE21B70A86008B0D66 /* AssignmentVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4535CD21B70A81008B0D66 /* AssignmentVars.swift */; };
 		9DA0B66921ADC943008B0E0C /* EventDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA0B66821ADC943008B0E0C /* EventDetailTableViewCell.swift */; };
 		9DA0B66B21AF1CD4008B0E0C /* EventVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA0B66A21AF1CD4008B0E0C /* EventVars.swift */; };
 		9DA0B66F21AF48E0008B0E0C /* AddEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA0B66E21AF48E0008B0E0C /* AddEventViewController.swift */; };
 		9DA0B67121B1E08A008B0E0C /* ExpandedEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA0B67021B1E08A008B0E0C /* ExpandedEventViewController.swift */; };
-		9DA0B67321B1F23E008B0E0C /* AssignmentVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA0B67221B1F23E008B0E0C /* AssignmentVars.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,13 +58,11 @@
 		01B5DA2F21A512E200C1C4D0 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		01B5DA3121ADA20700C1C4D0 /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCollectionViewCell.swift; sourceTree = "<group>"; };
 		01B5DA3321ADA39D00C1C4D0 /* CalendarVars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVars.swift; sourceTree = "<group>"; };
-		9D4535C921B7022D008B0D66 /* AssignmentPair+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AssignmentPair+CoreDataClass.swift"; sourceTree = "<group>"; };
-		9D4535CA21B7022D008B0D66 /* AssignmentPair+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AssignmentPair+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		9D4535CD21B70A81008B0D66 /* AssignmentVars.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AssignmentVars.swift; path = ../../../../.Trash/AssignmentVars.swift; sourceTree = "<group>"; };
 		9DA0B66821ADC943008B0E0C /* EventDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailTableViewCell.swift; sourceTree = "<group>"; };
 		9DA0B66A21AF1CD4008B0E0C /* EventVars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventVars.swift; sourceTree = "<group>"; };
 		9DA0B66E21AF48E0008B0E0C /* AddEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventViewController.swift; sourceTree = "<group>"; };
 		9DA0B67021B1E08A008B0E0C /* ExpandedEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandedEventViewController.swift; sourceTree = "<group>"; };
-		9DA0B67221B1F23E008B0E0C /* AssignmentVars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentVars.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,13 +113,11 @@
 		01B5D9FD21A5128F00C1C4D0 /* Canlendar */ = {
 			isa = PBXGroup;
 			children = (
-				9D4535C921B7022D008B0D66 /* AssignmentPair+CoreDataClass.swift */,
-				9D4535CA21B7022D008B0D66 /* AssignmentPair+CoreDataProperties.swift */,
 				9DA0B66E21AF48E0008B0E0C /* AddEventViewController.swift */,
 				01B5D9FE21A5128F00C1C4D0 /* AppDelegate.swift */,
 				01B5DA2F21A512E200C1C4D0 /* CalendarViewController.swift */,
 				01B5DA3121ADA20700C1C4D0 /* DateCollectionViewCell.swift */,
-				9DA0B67221B1F23E008B0E0C /* AssignmentVars.swift */,
+				9D4535CD21B70A81008B0D66 /* AssignmentVars.swift */,
 				01B5DA3321ADA39D00C1C4D0 /* CalendarVars.swift */,
 				9DA0B66A21AF1CD4008B0E0C /* EventVars.swift */,
 				01B5DA0221A5128F00C1C4D0 /* Main.storyboard */,
@@ -288,11 +282,9 @@
 			files = (
 				9DA0B67121B1E08A008B0E0C /* ExpandedEventViewController.swift in Sources */,
 				01B5DA3221ADA20700C1C4D0 /* DateCollectionViewCell.swift in Sources */,
-				9D4535CB21B7022D008B0D66 /* AssignmentPair+CoreDataClass.swift in Sources */,
 				9DA0B66F21AF48E0008B0E0C /* AddEventViewController.swift in Sources */,
 				01B5DA3021A512E200C1C4D0 /* CalendarViewController.swift in Sources */,
-				9DA0B67321B1F23E008B0E0C /* AssignmentVars.swift in Sources */,
-				9D4535CC21B7022D008B0D66 /* AssignmentPair+CoreDataProperties.swift in Sources */,
+				9D4535CE21B70A86008B0D66 /* AssignmentVars.swift in Sources */,
 				01B5D9FF21A5128F00C1C4D0 /* AppDelegate.swift in Sources */,
 				9DA0B66B21AF1CD4008B0E0C /* EventVars.swift in Sources */,
 				01B5DA3421ADA39D00C1C4D0 /* CalendarVars.swift in Sources */,

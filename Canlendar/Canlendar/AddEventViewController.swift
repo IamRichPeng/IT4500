@@ -8,8 +8,6 @@
 
 import UIKit
 import EventKit
-import Coredata
-
 
 class AddEventViewController: UIViewController {
 
@@ -34,21 +32,30 @@ class AddEventViewController: UIViewController {
     
     @IBOutlet var backButton: UIView!
     
+    var isEvent: Bool?
+    
     
     @IBAction func addEventButton(_ sender: UIBarButtonItem) {
+        print("addeventButton")
+        
         taskLabel.text = "Event"
         titleTextBox.placeholder = "Title"
         descriptionTextBox.placeholder = "enter description"
-       datePickerLabel.text = "Start Time"
-        
+        datePickerLabel.text = "Start Time"
+        isEvent = true
     }
     
     @IBAction func addAssignmentButton(_ sender: UIBarButtonItem) {
+        print("addAssignmentButton")
+        
         recurringSwitch.isHidden = true
         taskLabel.text = "Assignment"
         titleTextBox.placeholder = "Title:"
         descriptionTextBox.placeholder = "enter description here"
-       datePickerLabel.text = "Due Date"
+        datePickerLabel.text = "Due Date"
+        isEvent = false
+        
+        print(isEvent)
     }
     
     @IBAction func confirmButtonAction(_ sender: UIBarButtonItem) {
@@ -57,38 +64,36 @@ class AddEventViewController: UIViewController {
             return
         }
         
+        let newEvent: EKEvent
+        
         //variables to send to the Assignment Shuffler
-//        let dueDate = datePicker.date
-//        let duration = minutesLabel.text
-//        let assignmentTitle = titleTextBox.text
-        
-        
-        //stuff for static event
-        let startDate = datePicker.date
-        var oneHourFromNowComponents = DateComponents()
-        oneHourFromNowComponents.hour = 1
-        
-        guard let endDate = Calendar.current.date(byAdding: oneHourFromNowComponents, to: startDate) else {
-            return
+        print("building event...")
+        if isEvent == false{
+            print("adding assignemnt...")
+            
+            let dueDate = datePicker.date
+            let duration = Double(durationSliderValue.value/30)*30*60 //this gets us the seconds for converting to NSTimeInterval
+            let assignmentTitle = titleTextBox.text
+            
+            let assignmentPicker = AssignmentPicker(title: titleTextBox.text!, duration: duration, dueDate: dueDate)
+            
+            newEvent = assignmentPicker.selectTimeForAssignment()
+            
+            do {
+                try eventStore.save(newEvent, span: .thisEvent)
+                retrieveEventsFromYesterdayThroughComingMonth()
+            } catch {
+                print("didnt work")
+                //presentMessage(message: "Unable to save event in event store: \(error).")
+            }
+        } else {
+            let startDate = datePicker.date
+            let duration = minutesLabel.text
+            let assignmentTitle = titleTextBox.text
+            
         }
-        //end static event code
         
-        let event = EKEvent(eventStore: eventStore)
         
-        event.calendar = currentCalendar
-        event.title = titleTextBox.text
-        event.startDate = startDate
-        event.endDate = endDate
-        print(endDate)
-        event.notes = descriptionTextBox.text
-        event.url = URL(string: "https://missouri.edu")
-        
-        do {
-            try eventStore.save(event, span: .thisEvent)
-            retrieveEventsFromYesterdayThroughComingMonth()
-        } catch {
-            //presentMessage(message: "Unable to save event in event store: \(error).")
-        }
         navigationController?.popViewController(animated: true)
     }
         
