@@ -51,7 +51,7 @@ class AddEventViewController: UIViewController {
         recurringSwitch.isHidden = true
         taskLabel.text = "Assignment"
         titleTextBox.placeholder = "Title:"
-        descriptionTextBox.placeholder = "enter description here"
+        descriptionTextBox.placeholder = "enter description"
         datePickerLabel.text = "Due Date"
         isEvent = false
         
@@ -75,12 +75,12 @@ class AddEventViewController: UIViewController {
             let duration = Double(durationSliderValue.value/30)*30*60 //this gets us the seconds for converting to NSTimeInterval
             let assignmentTitle = titleTextBox.text
             
-            let assignmentPicker = AssignmentPicker(title: titleTextBox.text!, duration: duration, dueDate: dueDate)
+            //let assignmentPicker = AssignmentPicker(title: titleTextBox.text!, duration: duration, dueDate: dueDate)
             
-            newEvent = assignmentPicker.selectTimeForAssignment()
+           // newEvent = assignmentPicker.selectTimeForAssignment()
             
             do {
-                try eventStore.save(newEvent, span: .thisEvent)
+               // try eventStore.save(newEvent, span: .thisEvent)
                 retrieveEventsFromYesterdayThroughComingMonth()
             } catch {
                 print("didnt work")
