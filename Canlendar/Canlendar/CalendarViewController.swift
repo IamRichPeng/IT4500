@@ -69,7 +69,7 @@ class CalendarViewController: UIViewController ,UICollectionViewDelegate,UIColle
             }else{
                 DaysInMonth[1] = 28
             }
-          
+            
             GetStartDayPosition()
             currentMonth = Months[month]
             navBarTitle.title = "\(currentMonth) \(year)"
@@ -119,16 +119,16 @@ class CalendarViewController: UIViewController ,UICollectionViewDelegate,UIColle
             NumberofEmptyBox = weekday
             dayCounter = day
             while dayCounter > 0{
-                NumberofEmptyBox = NumberofEmptyBox - 0 // changes the amount of days on the calender view change this if it
+                NumberofEmptyBox = NumberofEmptyBox - 1 // changes the amount of days on the calender view change this if it
                                                         //has days from the previous or next month shown or not enough days
                 dayCounter = dayCounter - 1 // shifts boxes in the bottom right to the left
                 if NumberofEmptyBox == 0{
                     NumberofEmptyBox = 7
                 }
             }
-            //if NumberofEmptyBox == 7{
-               // NumberofEmptyBox = 0
-            //}
+            if NumberofEmptyBox == 7{
+                NumberofEmptyBox = 0
+            }
             PositionIndex = NumberofEmptyBox
         case 1...: // handles the next navbar
             NextNumberOfEmptyBox = (PositionIndex + DaysInMonth[month])%7 // <- this shifts the days from the top left over to the right when
@@ -138,7 +138,7 @@ class CalendarViewController: UIViewController ,UICollectionViewDelegate,UIColle
             if PreviousNumberOfEmptyBox == 7 {                                        //pressing back
                 PreviousNumberOfEmptyBox = 0
             }
-            //PositionIndex = PreviousNumberOfEmptyBox
+            PositionIndex = PreviousNumberOfEmptyBox
         default:
             fatalError()
         }
