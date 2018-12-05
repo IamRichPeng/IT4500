@@ -32,8 +32,7 @@ class AddEventViewController: UIViewController {
     
     @IBOutlet var backButton: UIView!
     
-    var isEvent: Bool?
-    
+    var isEvent = false
     
     @IBAction func addEventButton(_ sender: UIBarButtonItem) {
         print("addeventButton")
@@ -75,9 +74,9 @@ class AddEventViewController: UIViewController {
             let duration = Double(durationSliderValue.value/30)*30*60 //this gets us the seconds for converting to NSTimeInterval
             let assignmentTitle = titleTextBox.text
             
-            //let assignmentPicker = AssignmentPicker(title: titleTextBox.text!, duration: duration, dueDate: dueDate)
+            let assignmentPicker = AssignmentPicker(title: titleTextBox.text!, duration: duration, dueDate: dueDate)
             
-           // newEvent = assignmentPicker.selectTimeForAssignment()
+            newEvent = assignmentPicker.selectTimeForAssignment()
             
             do {
                // try eventStore.save(newEvent, span: .thisEvent)
@@ -92,8 +91,6 @@ class AddEventViewController: UIViewController {
             let assignmentTitle = titleTextBox.text
             
         }
-        
-        
         navigationController?.popViewController(animated: true)
     }
         
