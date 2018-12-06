@@ -74,9 +74,9 @@ class AddEventViewController: UIViewController {
             let duration = Double(durationSliderValue.value/30)*30*60 //this gets us the seconds for converting to NSTimeInterval
             let assignmentTitle = titleTextBox.text
             
-            let assignmentPicker = AssignmentPicker(title: titleTextBox.text!, duration: duration, dueDate: dueDate)
+//            let assignmentPicker = AssignmentPair(title: titleTextBox.text!, duration: duration, dueDate: dueDate)
             
-            newEvent = assignmentPicker.selectTimeForAssignment()
+//            newEvent = assignmentPicker.selectTimeForAssignment()
             
             do {
                // try eventStore.save(newEvent, span: .thisEvent)
