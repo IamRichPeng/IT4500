@@ -277,6 +277,8 @@ class CalendarViewController: UIViewController ,UICollectionViewDelegate,UIColle
         }
     }
     
+    var isWeekend = true
+    
     @IBAction func selectDate(_ sender: UIButton) {
         //refreshes all events
         initEKCalenders()
@@ -288,16 +290,17 @@ class CalendarViewController: UIViewController ,UICollectionViewDelegate,UIColle
         
         //for highlighting the selected day
         if previouslySelectedButton != nil{
-            //need way to check if weekend
-//            switch IndexPath.row{
-//            case 5,6,12,13,19,20,26,27,33,34:
-//                if Int(previouslySelectedButton.currentTitle!)! > 0{
-//                    previouslySelectedButton.backgroundColor = UIColor.lightGray
-//                }
-//            default:
-//                break
-//            }
-            previouslySelectedButton?.backgroundColor = UIColor(red:0.57, green:0.72, blue:0.93, alpha:1.0)
+            if isWeekend{
+                previouslySelectedButton?.backgroundColor = UIColor.lightGray
+            } else{
+                previouslySelectedButton?.backgroundColor = UIColor(red:0.57, green:0.72, blue:0.93, alpha:1.0)
+            }
+        }
+        
+        if sender.backgroundColor == UIColor.lightGray{
+            isWeekend = true
+        } else {
+            isWeekend = false
         }
         sender.backgroundColor = UIColor.red
         previouslySelectedButton = sender
