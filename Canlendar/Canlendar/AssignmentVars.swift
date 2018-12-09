@@ -20,7 +20,7 @@ import EventKit
 //      -Duration
 //      -Due Date
 //      -Start Date(NULL IF NOT ALREADY ASSIGNED)
-class EventPair{
+class AssignmentPicker{
     var title: String?
     var duration: TimeInterval?
     var dueDate: Date?
@@ -41,7 +41,7 @@ class EventPair{
         //selectTimeForAssignments()
     }
     
-    func selectTimeForAssignment(){
+    func selectTimeForAssignment() -> EKEvent{
         //find gap in Calendars where nothing is happening for the duration timeInterval
         
         //TO CHECK FOR GAPS
@@ -65,15 +65,53 @@ class EventPair{
         
         if relevantEvents.isEmpty{
             //add event right now
+            let event = EKEvent()
+            
+            event.title = title
+            event.startDate = currentDate
+            event.endDate = event.startDate + duration!
+            event.notes = "Dynmically added assignment by Bluprnt"
+            
+            return event
         }
         
+        var i = 0
         for event in relevantEvents{
             //find gaps between events
+            if relevantEvents.count > i - 2{
+                if relevantEvents[i + 1].startDate.timeIntervalSince(event.endDate) > duration!{
+                    let event = EKEvent()
+                    
+                    event.title = title
+                    event.startDate = relevantEvents[i].endDate
+                    event.endDate = event.startDate + duration!
+                    event.notes = "Dynmically added assignment by Bluprnt"
+                    
+                    return event
+                }
+            }
         }
         
         if relevantEvents[relevantEvents.count - 1].endDate.timeIntervalSince(dueDate!) > duration!{
             //add event at end time of last relevant event
+            let event = EKEvent()
+            
+            event.title = title
+            event.startDate = relevantEvents[relevantEvents.count - 1].endDate
+            event.endDate = event.startDate + duration!
+            event.notes = "Dynmically added assignment by Bluprnt"
+            
+            return event
         }
+        
+        //shouldnt get here
+        let event = EKEvent()
+        
+        event.title = title
+        event.startDate = relevantEvents[relevantEvents.count - 1].endDate
+        event.endDate = event.startDate + duration!
+        event.notes = "Dynmically added assignment by Bluprnt"
+        return event
     }
 }
 
