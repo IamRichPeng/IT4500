@@ -83,6 +83,7 @@ class AddEventViewController: UIViewController {
                 print("didnt work")
                 //presentMessage(message: "Unable to save event in event store: \(error).")
             }
+            
         } else {
             print("adding Event...")
             let startDate = datePicker.date

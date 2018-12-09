@@ -56,14 +56,14 @@ class AssignmentPicker{
         
         //find all events between now and due date
         for event in events{
-            if event.startDate < currentDate {
-                if event.startDate > dueDate!{
+            if event.endDate < currentDate {
+                if event.endDate > dueDate!{
                     relevantEvents.append(event)
                 }
             }
         }
         
-        if relevantEvents.isEmpty{
+        if relevantEvents.isEmpty == true{
             //add event right now
             let event = EKEvent()
             
