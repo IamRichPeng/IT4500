@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fIK-OI-aRH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fIK-OI-aRH">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Calendar View Controller-->
+        <!--Bluprnt-->
         <scene sceneID="gEZ-ZE-wpx">
             <objects>
                 <viewController id="uoR-WB-Q5f" customClass="CalendarViewController" customModule="Canlendar" customModuleProvider="target" sceneMemberID="viewController">
@@ -217,7 +217,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="DES-32-9Ec"/>
                     </view>
-                    <navigationItem key="navigationItem" id="0Ux-3C-eVt"/>
+                    <navigationItem key="navigationItem" title="Bluprnt" id="zRQ-Lm-yjm"/>
                     <connections>
                         <outlet property="Calendar" destination="j0Q-U7-Wsj" id="22X-E2-s98"/>
                         <outlet property="EventDetailTableView" destination="TyK-de-wwD" id="fdd-cS-AG4"/>
@@ -375,13 +375,6 @@
                                     <action selector="durationSlider:" destination="aRt-7S-LQD" eventType="valueChanged" id="kdR-i8-60P"/>
                                 </connections>
                             </slider>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="gfP-n6-ZtK">
-                                <rect key="frame" x="84" y="590" width="207" height="29"/>
-                                <segments>
-                                    <segment title="Non-repeating"/>
-                                    <segment title="Repeating"/>
-                                </segments>
-                            </segmentedControl>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G0T-f8-tfm">
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -425,14 +418,12 @@
                             <constraint firstItem="ZgV-6s-lbM" firstAttribute="top" secondItem="r7x-EV-jKd" secondAttribute="bottom" constant="30" id="3vZ-on-Afu"/>
                             <constraint firstItem="4hb-qk-76y" firstAttribute="trailing" secondItem="iVr-L1-vzh" secondAttribute="trailing" id="5qA-E9-6Ku"/>
                             <constraint firstItem="iVr-L1-vzh" firstAttribute="top" secondItem="jsJ-Wc-2Fm" secondAttribute="bottom" constant="30" id="6Qo-cl-BcZ"/>
-                            <constraint firstItem="gfP-n6-ZtK" firstAttribute="leading" secondItem="4hb-qk-76y" secondAttribute="leading" constant="84" id="7rz-NC-v02"/>
                             <constraint firstItem="DTp-Ex-zEm" firstAttribute="leading" secondItem="4hb-qk-76y" secondAttribute="leading" id="AbP-hy-kkK"/>
                             <constraint firstItem="4hb-qk-76y" firstAttribute="trailing" secondItem="AAn-Pp-mz8" secondAttribute="trailing" constant="126" id="Aus-Ud-XSp"/>
                             <constraint firstItem="ZgV-6s-lbM" firstAttribute="leading" secondItem="4hb-qk-76y" secondAttribute="leading" id="Dii-3L-t2m"/>
                             <constraint firstItem="4hb-qk-76y" firstAttribute="trailing" secondItem="DTp-Ex-zEm" secondAttribute="trailing" id="EqM-pV-Kcs"/>
                             <constraint firstItem="4hb-qk-76y" firstAttribute="trailing" secondItem="jsJ-Wc-2Fm" secondAttribute="trailing" id="Gq9-Lg-9XM"/>
                             <constraint firstItem="r7x-EV-jKd" firstAttribute="leading" secondItem="4hb-qk-76y" secondAttribute="leading" constant="80" id="IcK-37-AW9"/>
-                            <constraint firstItem="4hb-qk-76y" firstAttribute="trailing" secondItem="gfP-n6-ZtK" secondAttribute="trailing" constant="84" id="KsW-65-86a"/>
                             <constraint firstItem="AAn-Pp-mz8" firstAttribute="leading" secondItem="Whl-IW-q4f" secondAttribute="trailing" constant="-1" id="Lzi-7p-14m"/>
                             <constraint firstItem="DTp-Ex-zEm" firstAttribute="top" secondItem="4hb-qk-76y" secondAttribute="top" id="MKi-KM-TeD"/>
                             <constraint firstItem="AAn-Pp-mz8" firstAttribute="top" secondItem="uhV-Sw-w0z" secondAttribute="bottom" constant="14" id="NUZ-5U-aTA"/>
@@ -442,7 +433,6 @@
                             <constraint firstItem="jsJ-Wc-2Fm" firstAttribute="leading" secondItem="4hb-qk-76y" secondAttribute="leading" id="cyg-GU-4Wy"/>
                             <constraint firstItem="RRh-iI-V6Z" firstAttribute="top" secondItem="jsJ-Wc-2Fm" secondAttribute="bottom" constant="8" id="did-CR-vWC"/>
                             <constraint firstItem="jsJ-Wc-2Fm" firstAttribute="top" secondItem="ZgV-6s-lbM" secondAttribute="bottom" id="eA6-gb-Npw"/>
-                            <constraint firstItem="gfP-n6-ZtK" firstAttribute="top" secondItem="Whl-IW-q4f" secondAttribute="bottom" constant="48" id="iyZ-J4-zW7"/>
                             <constraint firstItem="iVr-L1-vzh" firstAttribute="leading" secondItem="4hb-qk-76y" secondAttribute="leading" id="kHq-UM-OAq"/>
                             <constraint firstItem="4hb-qk-76y" firstAttribute="trailing" secondItem="r7x-EV-jKd" secondAttribute="trailing" constant="80" id="lLJ-B9-DUm"/>
                             <constraint firstItem="4hb-qk-76y" firstAttribute="trailing" secondItem="uhV-Sw-w0z" secondAttribute="trailing" constant="10" id="nfX-me-r2s"/>
@@ -461,7 +451,6 @@
                         <outlet property="durationSliderValue" destination="uhV-Sw-w0z" id="Nhq-Ws-gtb"/>
                         <outlet property="minutesLabel" destination="AAn-Pp-mz8" id="acj-Lj-H9N"/>
                         <outlet property="minutesRequiredLabel" destination="Whl-IW-q4f" id="uxh-P1-cFc"/>
-                        <outlet property="recurringSwitch" destination="gfP-n6-ZtK" id="V9H-fo-aSf"/>
                         <outlet property="taskLabel" destination="r7x-EV-jKd" id="wUl-7K-akh"/>
                         <outlet property="titleTextBox" destination="ZgV-6s-lbM" id="ppQ-mE-JcT"/>
                     </connections>

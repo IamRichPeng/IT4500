@@ -66,7 +66,6 @@ class AddEventViewController: UIViewController {
         let newEvent: EKEvent
         
         //variables to send to the Assignment Shuffler
-        print("building event...")
         if isEvent == false{
             print("adding assignemnt...")
             
@@ -74,22 +73,38 @@ class AddEventViewController: UIViewController {
             let duration = Double(durationSliderValue.value/30)*30*60 //this gets us the seconds for converting to NSTimeInterval
             let assignmentTitle = titleTextBox.text
             
-//            let assignmentPicker = AssignmentPair(title: titleTextBox.text!, duration: duration, dueDate: dueDate)
+            let assignmentPicker = AssignmentPicker(title: assignmentTitle!, duration: duration, dueDate: dueDate)
             
-//            newEvent = assignmentPicker.selectTimeForAssignment()
+            newEvent = assignmentPicker.selectTimeForAssignment()
             
             do {
-               // try eventStore.save(newEvent, span: .thisEvent)
+                try eventStore.save(newEvent, span: .thisEvent)
                 retrieveEventsFromYesterdayThroughComingMonth()
             } catch {
                 print("didnt work")
                 //presentMessage(message: "Unable to save event in event store: \(error).")
             }
         } else {
+            print("adding Event...")
             let startDate = datePicker.date
-            let duration = minutesLabel.text
+            let duration = Double(durationSliderValue.value/30)*30*60
             let assignmentTitle = titleTextBox.text
             
+            let event = EKEvent(eventStore: eventStore)
+            
+            event.calendar = currentCalendar
+            event.title = title
+            event.startDate = startDate
+            event.endDate = event.startDate + duration
+            event.url = URL(string: "https://missouri.edu")
+            
+            do {
+                try eventStore.save(event, span: .thisEvent)
+                retrieveEventsFromYesterdayThroughComingMonth()
+            } catch {
+                print("didnt work")
+                //presentMessage(message: "Unable to save event in event store: \(error).")
+            }
         }
         navigationController?.popViewController(animated: true)
     }
@@ -109,7 +124,6 @@ class AddEventViewController: UIViewController {
         minutesRequiredLabel.textColor = UIColor.white
         descriptionTextBox.backgroundColor = UIColor(red:0.74, green:0.83, blue:0.96, alpha:1.0)
         titleTextBox.backgroundColor = UIColor(red:0.74, green:0.83, blue:0.96, alpha:1.0)
-        recurringSwitch.tintColor = UIColor(red:0.74, green:0.83, blue:0.96, alpha:1.0)
         datePicker.backgroundColor = UIColor(red:0.57, green:0.72, blue:0.93, alpha:1.0)
         
         taskLabel.text = "Assignment"

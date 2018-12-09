@@ -278,6 +278,7 @@ class CalendarViewController: UIViewController ,UICollectionViewDelegate,UIColle
     }
     
     @IBAction func selectDate(_ sender: UIButton) {
+        initEKCalenders()
         var currentDateString: String
         dailyEventList.removeAll()
     
