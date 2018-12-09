@@ -80,7 +80,7 @@ class AddEventViewController: UIViewController {
                 try eventStore.save(newEvent, span: .thisEvent)
                 retrieveEventsFromYesterdayThroughComingMonth()
             } catch {
-                print("didnt work")
+                print("didnt work \(error)")
                 //presentMessage(message: "Unable to save event in event store: \(error).")
             }
             
@@ -102,7 +102,7 @@ class AddEventViewController: UIViewController {
                 try eventStore.save(event, span: .thisEvent)
                 retrieveEventsFromYesterdayThroughComingMonth()
             } catch {
-                print("didnt work")
+                print("didnt work \(error)")
                 //presentMessage(message: "Unable to save event in event store: \(error).")
             }
         }

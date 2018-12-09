@@ -35,29 +35,16 @@ class AssignmentPicker{
     
     
     //need to find a time slot to place new assignment, must be before due date OTHERWISE reshuffle all assignments
-
-    //need to keep track of assignments we create
-    func createPair(){
-        //selectTimeForAssignments()
-    }
     
     func selectTimeForAssignment() -> EKEvent{
-        //find gap in Calendars where nothing is happening for the duration timeInterval
-        
-        //TO CHECK FOR GAPS
-            //start from today to dueDate
-            //example: event 1 at 2pm->3pm, event 2 at 5pm->6pm, event 3 at 8pm->9pm
-            //find timeInterval from event 1 endDate to event 2 start date
-            //if that interval is less than or equal to duration, assign assignment there, else check event 2 and 3
-            //if we get to dueDate without assigning, need to shuffle all assignment events
-        
+
         let currentDate = Date()
         var relevantEvents = [EKEvent]()
         
         //find all events between now and due date
         for event in events{
-            if event.endDate < currentDate {
-                if event.endDate > dueDate!{
+            if event.endDate > currentDate {
+                if event.endDate < dueDate!{
                     relevantEvents.append(event)
                 }
             }
@@ -65,11 +52,12 @@ class AssignmentPicker{
         
         if relevantEvents.isEmpty == true{
             //add event right now
-            let event = EKEvent()
+            let event = EKEvent(eventStore: eventStore)
             
             event.title = title
             event.startDate = currentDate
             event.endDate = event.startDate + duration!
+            event.calendar = currentCalendar
             event.notes = "Dynmically added assignment by Bluprnt"
             
             return event
@@ -80,11 +68,12 @@ class AssignmentPicker{
             //find gaps between events
             if relevantEvents.count > i - 2{
                 if relevantEvents[i + 1].startDate.timeIntervalSince(event.endDate) > duration!{
-                    let event = EKEvent()
+                    let event = EKEvent(eventStore: eventStore)
                     
                     event.title = title
                     event.startDate = relevantEvents[i].endDate
                     event.endDate = event.startDate + duration!
+                    event.calendar = currentCalendar
                     event.notes = "Dynmically added assignment by Bluprnt"
                     
                     return event
@@ -94,22 +83,24 @@ class AssignmentPicker{
         
         if relevantEvents[relevantEvents.count - 1].endDate.timeIntervalSince(dueDate!) > duration!{
             //add event at end time of last relevant event
-            let event = EKEvent()
+            let event = EKEvent(eventStore: eventStore)
             
             event.title = title
             event.startDate = relevantEvents[relevantEvents.count - 1].endDate
             event.endDate = event.startDate + duration!
+            event.calendar = currentCalendar
             event.notes = "Dynmically added assignment by Bluprnt"
             
             return event
         }
         
         //shouldnt get here
-        let event = EKEvent()
+        let event = EKEvent(eventStore: eventStore)
         
         event.title = title
         event.startDate = relevantEvents[relevantEvents.count - 1].endDate
         event.endDate = event.startDate + duration!
+        event.calendar = currentCalendar
         event.notes = "Dynmically added assignment by Bluprnt"
         return event
     }
