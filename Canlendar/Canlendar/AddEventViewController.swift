@@ -47,7 +47,6 @@ class AddEventViewController: UIViewController {
     @IBAction func addAssignmentButton(_ sender: UIBarButtonItem) {
         print("addAssignmentButton")
         
-        recurringSwitch.isHidden = true
         taskLabel.text = "Assignment"
         titleTextBox.placeholder = "Title:"
         descriptionTextBox.placeholder = "enter description"

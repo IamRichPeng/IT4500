@@ -112,6 +112,7 @@ class CalendarViewController: UIViewController ,UICollectionViewDelegate,UIColle
     //for selecting a specific day's events
     var dailyEventList = [EKEvent]()
     let dateFormatter = DateFormatter()
+    var previouslySelectedButton: UIButton?
     
     func GetStartDayPosition(){
         switch Direction{
@@ -210,7 +211,6 @@ class CalendarViewController: UIViewController ,UICollectionViewDelegate,UIColle
         }
         
          //show the weekend in different color
-        //TODO TODO TODO we need to not hardcode this, the weekends arent gonna work in different months
         switch indexPath.row{
         case 5,6,12,13,19,20,26,27,33,34:
             if Int(cell.DateButton.currentTitle!)! > 0{
@@ -220,7 +220,7 @@ class CalendarViewController: UIViewController ,UICollectionViewDelegate,UIColle
             break
         }
         
-        // mark the cell showing the current date red
+        // mark the cell showing the current date
         if currentMonth == Months[calendar.component(.month, from: date) - 1] && year == calendar.component(.year, from: date) && indexPath.row + 1 == day + NumberofEmptyBox{
             cell.DateButton.backgroundColor = UIColor(red:0.40, green:0.61, blue:0.90, alpha:1.0)
         }
@@ -278,11 +278,29 @@ class CalendarViewController: UIViewController ,UICollectionViewDelegate,UIColle
     }
     
     @IBAction func selectDate(_ sender: UIButton) {
+        //refreshes all events
         initEKCalenders()
+        
         var currentDateString: String
         dailyEventList.removeAll()
     
         dateFormatter.dateFormat = ("d MMMM yyyy")
+        
+        //for highlighting the selected day
+        if previouslySelectedButton != nil{
+            //need way to check if weekend
+            switch IndexPath.row{
+            case 5,6,12,13,19,20,26,27,33,34:
+                if Int(previouslySelectedButton.currentTitle!)! > 0{
+                    previouslySelectedButton.backgroundColor = UIColor.lightGray
+                }
+            default:
+                break
+            }
+            previouslySelectedButton?.backgroundColor = UIColor(red:0.57, green:0.72, blue:0.93, alpha:1.0)
+        }
+        sender.backgroundColor = UIColor.red
+        previouslySelectedButton = sender
         
         //create a way to read the selected day
         currentDateString = sender.currentTitle! + " " + navBarTitle.title!
