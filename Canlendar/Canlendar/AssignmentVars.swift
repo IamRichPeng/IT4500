@@ -1,3 +1,4 @@
+
 //
 //  AssignmentVars.swift
 //  Canlendar
@@ -62,50 +63,17 @@ class EventPair{
             }
         }
         
-        for event in relevantEvents{
-            var i = event.index(ofAccessibilityElement: event)
-            if i + 1 <= relevantEvents.count{
-                //find time interval between this event and next
-                let interval = relevantEvents[i+1].startDate.timeIntervalSince(event.endDate)
-                if interval > duration!{
-                    //events.append(nil) //TODO TODO TODO create new event with start date = event.endDate
-                }
-            }
-            else if event.endDate > dueDate!{
-                let interval = relevantEvents[i+1].startDate.timeIntervalSince(event.endDate)
-                if interval > duration!{
-                    //events.append(nil) //TODO TODO TODO create new event with start date = event.endDate
-                }
-            }
+        if relevantEvents.isEmpty{
+            //add event right now
         }
         
+        for event in relevantEvents{
+            //find gaps between events
+        }
         
-        //if assignment cannot have a time selected, shuffleAssignments()
-    }
-    
-    //need to shuffle assignments if conflicts arise from due date
-    func shuffleAssignments(){
-        
-        //
-        
-        
-        //findAssignments()
-    }
-    
-    //need to search for all pairs we've created
-    func findAssignments(){
-        //check if user has deleted assignments in Apple Calendars, removeDeletedAssignments()
-        //place assignments according to due date,
-    }
-    
-    //places assignments in the calendar when events are not scheduled, ordered by due date
-    func assignTimeForAssignments(){
-        
-    }
-    
-    //removes our local tracker of an assignment in case of user deleting the assignment in Apple Calendar
-    func removeDeletedAssignments(){
-        
+        if relevantEvents[relevantEvents.count - 1].endDate.timeIntervalSince(dueDate!) > duration!{
+            //add event at end time of last relevant event
+        }
     }
 }
 

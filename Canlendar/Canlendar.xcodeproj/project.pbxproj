@@ -58,7 +58,7 @@
 		01B5DA2F21A512E200C1C4D0 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		01B5DA3121ADA20700C1C4D0 /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCollectionViewCell.swift; sourceTree = "<group>"; };
 		01B5DA3321ADA39D00C1C4D0 /* CalendarVars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVars.swift; sourceTree = "<group>"; };
-		9D4535CD21B70A81008B0D66 /* AssignmentVars.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AssignmentVars.swift; path = ../../../../.Trash/AssignmentVars.swift; sourceTree = "<group>"; };
+		9D4535CD21B70A81008B0D66 /* AssignmentVars.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssignmentVars.swift; sourceTree = "<group>"; };
 		9DA0B66821ADC943008B0E0C /* EventDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailTableViewCell.swift; sourceTree = "<group>"; };
 		9DA0B66A21AF1CD4008B0E0C /* EventVars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventVars.swift; sourceTree = "<group>"; };
 		9DA0B66E21AF48E0008B0E0C /* AddEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventViewController.swift; sourceTree = "<group>"; };
