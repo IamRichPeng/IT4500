@@ -149,7 +149,7 @@ class CalendarViewController: UIViewController ,UICollectionViewDelegate,UIColle
         super.viewDidLoad()
         EventDetailTableView.backgroundColor = UIColor(red:0.31, green:0.55, blue:0.89, alpha:1.0)
         
-        
+        Thread.sleep(forTimeInterval: 2.0)
         dateFormatter.dateStyle = .short
         dateFormatter.timeStyle = .short
         
