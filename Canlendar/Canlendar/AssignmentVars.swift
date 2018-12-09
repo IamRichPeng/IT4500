@@ -66,7 +66,7 @@ class AssignmentPicker{
         var i = 0
         for event in relevantEvents{
             //find gaps between events
-            if relevantEvents.count > i - 2{
+            if relevantEvents.count < i - 1{
                 if relevantEvents[i + 1].startDate.timeIntervalSince(event.endDate) > duration!{
                     let event = EKEvent(eventStore: eventStore)
                     
