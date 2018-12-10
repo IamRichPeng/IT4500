@@ -278,6 +278,7 @@ class CalendarViewController: UIViewController ,UICollectionViewDelegate,UIColle
     }
     
     var isWeekend = true
+    var isToday = true
     
     @IBAction func selectDate(_ sender: UIButton) {
         //refreshes all events
@@ -292,9 +293,17 @@ class CalendarViewController: UIViewController ,UICollectionViewDelegate,UIColle
         if previouslySelectedButton != nil{
             if isWeekend{
                 previouslySelectedButton?.backgroundColor = UIColor.lightGray
+            } else if isToday{
+                previouslySelectedButton?.backgroundColor = UIColor(red:0.40, green:0.61, blue:0.90, alpha:1.0)
             } else{
                 previouslySelectedButton?.backgroundColor = UIColor(red:0.57, green:0.72, blue:0.93, alpha:1.0)
             }
+        }
+        
+        if sender.backgroundColor == UIColor(red:0.40, green:0.61, blue:0.90, alpha:1.0){
+            isToday = true
+        } else{
+            isToday = false
         }
         
         if sender.backgroundColor == UIColor.lightGray{
@@ -315,6 +324,7 @@ class CalendarViewController: UIViewController ,UICollectionViewDelegate,UIColle
                 dailyEventList.insert(event, at: 0)
             }
         }
+        dailyEventList.sort(){$0.startDate < $1.startDate}
         refreshUI()
     }
     

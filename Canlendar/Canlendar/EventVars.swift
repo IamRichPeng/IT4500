@@ -28,14 +28,11 @@ func initEKCalenders(){
 func checkCalendarAuthorizationStatus() {
     switch(EKEventStore.authorizationStatus(for: .event)) {
     case .notDetermined:
-        print("not determined")
         requestAccessToCalendar()
     case .authorized:
-        print("authorized")
         authorized = true
         retrieveEventsFromYesterdayThroughComingMonth()
     case .restricted, .denied:
-        print("restricted or denied")
         requestAccessToCalendar()
     }
 }
@@ -46,13 +43,12 @@ func requestAccessToCalendar() {
         
         if (accessGranted) {
             DispatchQueue.main.async {
-                print("Access calendars")
                 authorized = true
                 retrieveEventsFromYesterdayThroughComingMonth()
             }
         } else {
             DispatchQueue.main.async {
-                print("Permission is required")
+                print("Error: Permission is required")
             }
         }
     }

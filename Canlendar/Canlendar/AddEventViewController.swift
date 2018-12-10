@@ -75,7 +75,7 @@ class AddEventViewController: UIViewController {
             let assignmentPicker = AssignmentPicker(title: assignmentTitle!, duration: duration, dueDate: dueDate)
             
             newEvent = assignmentPicker.selectTimeForAssignment()
-            
+            newEvent.notes = descriptionTextBox.text
             do {
                 try eventStore.save(newEvent, span: .thisEvent)
                 retrieveEventsFromYesterdayThroughComingMonth()
@@ -93,9 +93,10 @@ class AddEventViewController: UIViewController {
             let event = EKEvent(eventStore: eventStore)
             
             event.calendar = currentCalendar
-            event.title = title
+            event.title = titleTextBox.text
             event.startDate = startDate
             event.endDate = event.startDate + duration
+            event.notes = descriptionTextBox.text
             event.url = URL(string: "https://missouri.edu")
             
             do {
@@ -138,9 +139,6 @@ class AddEventViewController: UIViewController {
             return
         }
         
-       
-        
-        
         let startDate = Date(timeIntervalSinceNow: 0)
         var oneHourFromNowComponents = DateComponents()
         oneHourFromNowComponents.hour = 1
@@ -166,5 +164,3 @@ class AddEventViewController: UIViewController {
         }
     }
 }
-
-//the code needs to take the day it is due and pick a time between todays date and the due date and insert the activity into a time frame it would work in 
