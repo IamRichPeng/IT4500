@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Bluprnt-->
+        <!--Blueprnt-->
         <scene sceneID="gEZ-ZE-wpx">
             <objects>
                 <viewController id="uoR-WB-Q5f" customClass="CalendarViewController" customModule="Canlendar" customModuleProvider="target" sceneMemberID="viewController">
@@ -217,7 +217,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="DES-32-9Ec"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Bluprnt" id="zRQ-Lm-yjm"/>
+                    <navigationItem key="navigationItem" title="Blueprnt" id="zRQ-Lm-yjm"/>
                     <connections>
                         <outlet property="Calendar" destination="j0Q-U7-Wsj" id="22X-E2-s98"/>
                         <outlet property="EventDetailTableView" destination="TyK-de-wwD" id="fdd-cS-AG4"/>
